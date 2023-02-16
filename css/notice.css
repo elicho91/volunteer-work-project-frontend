@@ -1,0 +1,500 @@
+#app {
+    line-height: 1.4;
+    font-size: 14px;
+    letter-spacing: -0.5px;
+    color: #000;
+    position: relative;
+  }
+  #app .clearfix::before, #app #app .clearfix::after {
+    flex-basis: 0;
+    order: 1;
+  }
+  #app .heading-1 {
+    font-size: 30px;
+  }
+  #app .heading-2 {
+    font-size: 25px;
+  }
+  #app a {
+    text-decoration: none;
+    color: inherit;
+  }
+  #app .container-flex {
+    display: flex;
+  }
+  #app .container-flex .col {
+    justify-content: center;
+    flex: 1 1 auto;
+  }
+  #app .container-flex.col3 > .col {
+    width: 33.3%;
+  }
+  #app .container-flex.col4 > .col {
+    width: 25%;
+  }
+  #app .wrapper {
+    margin: 0 auto;
+  }
+  #app #kv {
+    width: 100%;
+    max-height: 300px;
+    height: 300px;
+    background-image: url("https://www.nespresso.com/ecom/medias/sys_master/public/11960474861598/kv.png");
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  #app #kv h1 {
+    line-height: 47px;
+    color: #fff;
+    display: table;
+    position: relative;
+    font-size: 45px;
+    text-align: center;
+    letter-spacing: 10px;
+    width: 100%;
+    height: 100%;
+    font-weight: 600;
+  }
+  #app #navi {
+    width: 100%;
+    background: #000;
+    position: relative;
+  }
+  #app #navi .wrapper .menu1depth {
+    color: #fff;
+    text-align: center;
+  }
+  #app #navi .wrapper .menu1depth .menu2depth {
+    visibility: hidden;
+    opacity: 0;
+    padding: 10px 0;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+  }
+  #app #navi .wrapper .menu1depth .menu2depth svg {
+    fill: #000;
+    color: #000;
+  }
+  #app #navi .wrapper .menu1depth.active {
+    background: #fff;
+    font-weight: 600;
+  }
+  #app #navi .wrapper .menu1depth.active > a {
+    color: #986f38;
+  }
+  #app #navi .wrapper .menu1depth.active .menu2depth {
+    visibility: visible;
+    opacity: 1;
+    position: absolute;
+    background: #fff;
+  }
+  #app #navi .wrapper .menu1depth.active .menu2depth a {
+    display: block;
+    color: #986f38;
+    cursor: pointer;
+  }
+  #app #navi .wrapper .menu1depth.active .menu2depth a svg {
+    fill: #000;
+  }
+  #app #navi .wrapper .menu1depth.active .menu2depth a b {
+    display: block;
+    color: #000;
+  }
+  #app #navi .wrapper .menu1depth.active .menu2depth .active svg {
+    fill: #986f38;
+  }
+  #app #navi .wrapper .menu1depth.active .menu2depth .active b {
+    color: #986f38;
+  }
+  #app #navi.fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 11;
+  }
+  #app #navi.fixed .menu1depth > a {
+    padding: 10px 0;
+  }
+  #app #navi.fixed .menu1depth > a.active {
+    background-color: #fff;
+    color: #986f38;
+    font-weight: 600;
+  }
+  #app #navi.fixed .menu1depth > a .menu2depth {
+    padding: 10px 0;
+  }
+  #app #contents {
+    background: #fff;
+  }
+  #app #contents > div {
+    display: none;
+  }
+  #app #contents > div .heading-2 {
+    padding: 30px 0;
+  }
+  #app #contents > div ul > li {
+    letter-spacing: -0.5px;
+    position: relative;
+  }
+  #app #contents > div ul > li:before {
+    position: absolute;
+    content: "-";
+    left: 0px;
+  }
+  #app #contents > div ul.depth1 {
+    padding: 0px 0 0 20px;
+  }
+  #app #contents > div.active {
+    display: block;
+  }
+  #app #contents app {
+    padding: 0 0 50px;
+  }
+  #app #contents app article {
+    width: 100%;
+    margin: 0 auto;
+  }
+  #app #contents app article.is-collapsed {
+    display: block;
+    border: 1px solid #fff;
+  }
+  #app #contents app article.is-collapsed .content {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+  }
+  #app #contents app article.is-collapsed .content .text {
+    position: fixed;
+    overflow-y: auto;
+    word-break: keep-all;
+    line-height: 1.6;
+    background: white;
+  }
+  #app #contents app article.is-collapsed .content .text .close {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    font-size: 40px;
+  }
+  #app #contents app article .titleSection {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-between;
+    border-bottom: 1px solid #e4e4e4;
+    flex-wrap: nowrap;
+  }
+  #app #contents app article .titleSection.notice {
+    font-weight: bold;
+  }
+  #app #contents app article .titleSection > div {
+    line-height: 1.4;
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px 0;
+  }
+  #app #contents app article .content {
+    padding: 20px 10px;
+    display: none;
+  }
+  @media (min-width: 320px) and (max-width: 767px) {
+    #app {
+      font-size: 11px;
+      font-size: 11px;
+    }
+    #app .heading-1 {
+      font-size: 25px;
+    }
+    #app .heading-2 {
+      font-size: 20px;
+    }
+    #app .table {
+      overflow-x: auto;
+    }
+    #app #kv {
+      height: 100px !important;
+    }
+    #app #kv h1 {
+      padding: 0;
+      display: block !important;
+      padding: 20px 0 !important;
+      display: block;
+      text-align: center;
+      font-size: 30px !important;
+      letter-spacing: 1px !important;
+    }
+    #app #navi .menu1depth {
+      white-space: nowrap;
+      overflow: hidden;
+      padding: 10px 0;
+    }
+    #app #navi .menu1depth > a {
+      white-space: nowrap;
+      font-size: 12px;
+      letter-spacing: -1px;
+      word-break: keep-all;
+      text-align: center;
+      text-overflow: ellipsis;
+      margin: 0 5px;
+      overflow: hidden;
+      width: 80%;
+    }
+    #app #navi .menu1depth > a:hover {
+      overflow: visible;
+    }
+    #app #navi .menu1depth.active .menu2depth {
+      top: 40px;
+      display: block !important;
+    }
+    #app #navi .menu2depth {
+      display: none;
+    }
+    #app #navi .menu2depth a {
+      color: #000;
+      font-size: 11px;
+    }
+    #app #navi .menu2depth a svg {
+      height: 20px;
+      fill: #000;
+    }
+    #app #contents .wrapper {
+      width: 90vw;
+      max-width: 100%;
+      margin: 0 auto;
+      letter-spacing: -0.5px;
+    }
+    #app #contents .wrapper .titleSection {
+      display: flex;
+      flex: 1;
+      align-items: space-between;
+    }
+    #app #contents .wrapper .titleSection .title {
+      font-size: 11px;
+      width: 75%;
+    }
+    #app #contents .wrapper .titleSection .date {
+      width: 25%;
+      font-size: 11px;
+      text-align: right;
+    }
+    #app #contents .wrapper .content .text {
+      width: calc(100vw - 40px);
+      height: calc(100vh - 60px);
+      padding: 60px 20px;
+    }
+    #app app {
+      padding: 0 0 50px;
+    }
+    #app app article {
+      width: 100%;
+      margin: 0 auto;
+    }
+    #app app article.is-collapsed {
+      display: block;
+      border: 1px solid #fff;
+    }
+    #app app article.is-collapsed .content {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+    }
+    #app app article.is-collapsed .content .text {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      overflow-y: auto;
+      word-break: keep-all;
+      line-height: 1.6;
+      background: white;
+      padding: 10px;
+    }
+    #app app article.is-collapsed .content .text .close {
+      position: absolute;
+      top: 0px;
+      right: 20px;
+      font-size: 40px;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 995px) {
+    #app .wrapper {
+      width: 90vw;
+      margin: 0 auto;
+    }
+    #app #kv .wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #app #navi .menu1depth {
+      padding: 20px 0;
+    }
+    #app #navi .menu2depth {
+      top: 80px;
+    }
+    #app #navi .menu2depth a {
+      position: relative;
+    }
+    #app #navi .menu2depth svg {
+      height: 60px;
+    }
+    #app #navi .menu2depth.active {
+      position: relative;
+    }
+    #app #navi .menu2depth.active:after {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 20px solid #986f38;
+      content: "";
+      bottom: 0px;
+    }
+    #app #navi.fixed {
+      top: 80px;
+    }
+    #app #navi.fixed .menu1depth {
+      padding: 10px 0;
+    }
+    #app #navi.fixed .menu1depth.active > a {
+      padding: 10px 0;
+    }
+    #app #navi.fixed .menu1depth.active > a.active {
+      background-color: #fff;
+      color: #986f38;
+      font-weight: 600;
+    }
+    #app #navi.fixed .menu1depth .menu2depth {
+      top: 39px;
+      padding: 5px 0;
+      box-shadow: 0 4px 2px -2px #e9e9e9;
+    }
+    #app #contents {
+      background: #fff;
+      padding: 120px 0 100px;
+    }
+    #app #contents > div {
+      padding: 50px 0;
+    }
+  }
+  @media (min-width: 996px) {
+    #app .wrapper {
+      width: 996px;
+    }
+    #app #kv .wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #app #navi .menu1depth {
+      padding: 20px 0;
+    }
+    #app #navi .menu2depth {
+      top: 80px;
+    }
+    #app #navi .menu2depth a {
+      position: relative;
+    }
+    #app #navi .menu2depth svg {
+      height: 60px;
+    }
+    #app #navi .menu2depth.active {
+      position: relative;
+    }
+    #app #navi .menu2depth.active:after {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 20px solid #986f38;
+      content: "";
+      bottom: 0px;
+    }
+    #app #navi.fixed {
+      top: 80px;
+    }
+    #app #navi.fixed .menu1depth {
+      padding: 10px 0;
+    }
+    #app #navi.fixed .menu1depth.active > a {
+      padding: 10px 0;
+    }
+    #app #navi.fixed .menu1depth.active > a.active {
+      background-color: #fff;
+      color: #986f38;
+      font-weight: 600;
+    }
+    #app #navi.fixed .menu1depth .menu2depth {
+      top: 39px;
+      padding: 5px 0;
+      box-shadow: 0 4px 2px -2px #e9e9e9;
+    }
+    #app #contents {
+      background: #fff;
+      padding: 120px 0 100px;
+    }
+    #app #contents > div {
+      padding: 50px 0;
+    }
+    #app app {
+      padding: 0 0 50px;
+    }
+    #app app article {
+      width: 100%;
+      margin: 0 auto;
+    }
+    #app app article.is-collapsed {
+      display: block;
+      border: 1px solid #fff;
+    }
+    #app app article.is-collapsed .content {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    #app app article.is-collapsed .content .text {
+      position: fixed;
+      width: calc(50% - 100px);
+      height: calc(50% - 100px);
+      left: 50%;
+      top: 50%;
+      overflow-y: auto;
+      word-break: keep-all;
+      line-height: 1.6;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 50px;
+    }
+    #app app article.is-collapsed .content .text .close {
+      position: absolute;
+      top: 0px;
+      right: 20px;
+      font-size: 40px;
+    }
+  }
