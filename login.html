@@ -1,39 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
- 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="./css/login.css">
- 
 </head>
-​
-​
 <a href="https://dribbble.com/shots/3306190-Login-Registration-form" target="_blank" class="icon-link">
   <img src="http://icons.iconarchive.com/icons/uiconstock/socialmedia/256/Dribbble-icon.png">
 </a>
 <a href="https://twitter.com/NikolayTalanov" target="_blank" class="icon-link icon-link--twitter">
   <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png">
 </a>
-​
-​
-​
 <body>
-​
     <p class="tip">Click on button in image container</p>
 <div class="cont">
   <div class="form sign-in">
     <h2>Welcome back,</h2>
     <label>
       <span>Email</span>
-      <input id="loginId" type="email" />
+      <input id="login_id" type="email" />
     </label>
     <label>
       <span>Password</span>
-      <input id="loginPassword" type="password" />
+      <input id="login_password" type="password" />
     </label>
     <p class="forgot-pass">Forgot password?</p>
     <button type="button" class="submit" onclick="login()">Sign In</button>
@@ -62,11 +53,11 @@
       </label>
       <label>
         <span>Email</span>
-        <input id="loginId" type="email" />
+        <input id="signUp_id" type="email" />
       </label>
       <label>
         <span>Password</span>
-        <input id="loginPassword" type="password" />
+        <input id="signUp_password" type="password" />
       </label>
       <label>
         <span>admminToken</span>
@@ -77,27 +68,22 @@
     </div>
   </div>
 </div>
-​
 <script src="./js/jquery-3.3.1.min.js"></script>
 <script src="./js/jquery-ui.js"></script>
 <script>
-​
 document.querySelector('.img__btn').addEventListener('click', function() {
   document.querySelector('.cont').classList.toggle('s--signup');
 });
-​
 function signup(){
-  var dataObj = {
-    "userId": $('#loginId').val(),
-    "password": $('#loginPassword').val(),
+  const dataObj = {
+    "userId": $('#signUp_id').val(),
+    "password": $('#signUp_password').val(),
     "nickname": $('#nickname').val()
   };
-  
   if ($('#adminToken').val() !== '') {
     dataObj.adminToken = $('#adminToken').val();
   }
-​
-  var settings = {
+  const settings = {
     "url": "http://localhost:8080/users/signup",
     "method": "POST",
     "timeout": 0,
@@ -106,14 +92,12 @@ function signup(){
     },
     "data": JSON.stringify(dataObj)
   };
-  
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  });
+ $.ajax(settings).done(function (response) {
+  console.log(response);
+});
 }
-​
 function login(){
-  var settings = {
+  const settings = {
   "url": "http://localhost:8080/users/signin",
   "method": "POST",
   "timeout": 0,
@@ -121,16 +105,14 @@ function login(){
     "Content-Type": "application/json"
   },
   "data": JSON.stringify({
-    "userId": $('#loginId').val(),
-    "password": $('#loginPassword').val(),
+    "userId": $('#login_id').val(),
+    "password": $('#login_password').val(),
   }),
 };
-​
 $.ajax(settings).done(function (response) {
   console.log(response);
 });
 }
   </script>
-​
 </body>
 </html>
