@@ -94,6 +94,8 @@ function signup(){
   };
  $.ajax(settings).done(function (response) {
   console.log(response);
+  alert('회원가입이 완료되었습니다.')
+  document.querySelector('.cont').classList.toggle('s--signup');
 });
 }
 function login(){
@@ -106,11 +108,21 @@ function login(){
   },
   "data": JSON.stringify({
     "userId": $('#login_id').val(),
-    "password": $('#login_password').val(),
+    "password": $('#login_password').val()
   }),
 };
-$.ajax(settings).done(function (response) {
+$.ajax(settings).done(function (response, status, xhr) {
   console.log(response);
+  console.log(xhr.getResponseHeader('Authorization'))
+  localStorage.setItem('accessToken', xhr.getResponseHeader('Authorization'))
+  alert('로그인이 완료되었습니다.');
+  window.location = '/index.html'
+}).fail(function(response){
+  if(response.responseJSON.statusCode == 400){
+    alert('아이디와 비밀번호가 일치하지 않습니다.');
+  }else{
+    alert('서버에 문제가 발생하였습니다.');
+  }
 });
 }
   </script>

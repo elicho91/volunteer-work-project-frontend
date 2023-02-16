@@ -4,8 +4,10 @@
  	once: true
  });
 
+ // 페이지가 로딩 될 때 실행 되는거.
 jQuery(document).ready(function($) {
 
+	getUserMe();
 	"use strict";
 
 	var slider = function() {
@@ -199,3 +201,22 @@ jQuery(document).ready(function($) {
 
 
 });
+
+function getUserMe(){
+	var settings = {
+		"url": "http://localhost:8080/profiles",
+		"method": "GET",
+		"timeout": 0,
+		"headers": {
+		  "Authorization": localStorage.getItem('accessToken')
+		},
+	  };
+	  
+	  $.ajax(settings).done(function (response) {
+		console.log(response);
+		console.log(response.nickname);
+		$(`#loginUser`).empty();
+		$(`#loginUser`).append(response.data.nickname + "님 반갑습니다.");
+	  });
+
+}
