@@ -228,26 +228,17 @@
   <script src="js/main.js"></script>
 
   <script>
-    $(window.document).ready(function() {
+    $(document).ready(function() {
     createPost();
   })
   function createPost() {
-    $.ajax ({
+    $.ajax({
       type : "POST",
-      url : "http://localhost:8080/volunteerWorkPosts",
+      url : ""
       data : {},
-      headers : {
-        "Authorization" : localStorage.setItem("accessToken")
-      },
-      success : function (request) {
-        const e = (request["data"])
-        $("#title").text(e["title"])
-        $("#content").text(e["content"])
-        $("#area").text(e["area"])
-      //  $("#status").text(e["postStatus"])
-      },
     })
   }
+
 //     const settings = {
 //   "url": "http://localhost:8080/volunteerWorkPosts",
 //   "method": "POST",
