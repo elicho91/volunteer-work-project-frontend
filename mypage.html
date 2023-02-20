@@ -154,12 +154,12 @@
               </div>
             </form>
           </div>
-          <div class="col-md-5 ml-auto">
-            <div class="p-4 border mb-3">
-              <span class="d-block text-primary h6 text-uppercase">나의 봉사활동 참여현황</span>
+          <div class="col-md-3 ml-auto">
+            <div class="p-2 border mb-2">
+              <a href="myVolunteerWorkList.html" class="d-block text-primary h6 text-uppercase">나의 봉사활동 참여현황</a>
             </div>
-            <div class="p-4 border mb-3">
-              <span class="d-block text-primary h6 text-uppercase">나의 챌린지 참여현황</span>
+            <div class="p-2 border mb-2">
+              <a href="myVolunteerWorkList.html" class="d-block text-primary h6 text-uppercase">나의 챌린지 참여현황</a>
             </div>
 
           </div>
@@ -259,6 +259,24 @@
 function userprofile() {
     $.ajax({
         type: "GET",
+        url: "http://localhost:8080/profiles",
+        data: {},
+        headers: {
+          "Authorization": localStorage.getItem('accessToken')
+        },
+        success: function (response) {
+            const e = (response['data'])
+            $('#userId').text(e['userId'])
+            $('#nickname').text(e['nickname'])
+            $('#phoneNumber').text(e['phoneNumber'])
+            $('#interestArea').text(e['interestArea'])
+            $('#image').text(e['image'])
+        },
+})}
+
+function updateprofile() {
+    $.ajax({
+        type: "PATCH",
         url: "http://localhost:8080/profiles",
         data: {},
         headers: {

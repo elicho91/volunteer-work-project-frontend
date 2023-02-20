@@ -216,7 +216,24 @@ function getUserMe(){
 		console.log(response);
 		console.log(response.nickname);
 		$(`#loginUser`).empty();
-		$(`#loginUser`).append(response.data.nickname + "님 반갑습니다.");
+		$(`#loginUser`).append("[" + response.data.nickname + "]" + "님 반갑습니다.");
 	  });
 
+}
+
+function signout(){
+	var settings = {
+		"url": "http://localhost:8080/users/signout",
+		"method": "POST",
+		"timeout": 0,
+		"headers": {
+			"Authorization": localStorage.getItem('accessToken')
+		},
+	  };
+	  
+	  $.ajax(settings).done(function (response) {
+		console.log(response);
+		alert("로그아웃이 완료되었습니다.")
+		window.location = '/index.html'
+	  });
 }

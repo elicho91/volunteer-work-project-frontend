@@ -223,6 +223,14 @@ font-weight: bold;
 color: #455a81;
 }
 
+.kakao-btn {
+margin-top: 40px;
+margin-bottom: 20px;
+background: #fffb00;
+font-weight: bold;
+color: #455a81;
+}
+
 .sign-in {
 transition-timing-function: ease-out;
 }
