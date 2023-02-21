@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+    <title>Volunteering &mdash; Colorlib e-Commerce Template</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.891.0.min.js"></script>
 
 
     <link rel="stylesheet" href="css/aos.css">
@@ -39,7 +37,7 @@
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.html" class="js-logo-clone">VOLUNTEERING</a>
+                <a href="index.html" class="js-logo-clone">Volunteering</a>
               </div>
             </div>
 
@@ -65,8 +63,8 @@
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="has-children">
-              <a href="index.html">Home</a>
+            <li class="has-children active">
+              <a href="mypage.html">MyPage</a>
               <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                 <li><a href="#">Menu Two</a></li>
@@ -75,24 +73,23 @@
                   <a href="#">Sub Menu</a>
                   <ul class="dropdown">
                     <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
+
                   </ul>
                 </li>
               </ul>
             </li>
             <li class="has-children">
-              <a href="about.html">About</a>
+              <a href="volunteerWorkPost.html">봉사활동</a>
               <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                 <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
+                <li><a href="#">Menu THree</a></li>
               </ul>
             </li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="#">Catalogue</a></li>
-            <li><a href="#">New Arrivals</a></li>
-            <li class="active"><a href="contact.html">Contact</a></li>
+            <li><a href="challenge.html">챌린지</a></li>
+            <li><a href="challenge-participate.html">챌린지 인증하기</a></li>
+            <li><a href="notice.html">공지사항</a></li>
+            <li><a href="contact.html">고객지원</a></li>
           </ul>
         </div>
       </nav>
@@ -101,70 +98,51 @@
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">MyPage</strong></div>
-        </div>
-      </div>
-    </div>  
-
-    <div class="site-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="h3 mb-3 text-black">프로필정보 수정</h2>
-          </div>
-          <div class="col-md-7">
-
-            <form>
-              
-              <div class="p-3 p-lg-5 border">
-                <div class="form-group row">
-                  <div class="col-md-6">
-                    <label for="c_email" class="text-black">아이디<span class="text-danger">*</span></label>
-                    <div class="form-control" id="c_fname" name="c_fname"><span id="userId"></span></div>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-6">
-                    <label for="c_email" class="text-black">닉네임 <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" required id="nickname">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-6">
-                    <label for="c_email" class="text-black">연락처<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="phoneNumber">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-6">
-                    <label for="c_subject" class="text-black">관심지역</label>
-                    <input type="text" class="form-control" id="interestArea">
-                  </div>
-                </div>
-
-                <div class="form-group row">
-                  <div class="col-md-6">
-                    <label for="c_message" class="text-black">프로필사진</label>
-                    <input type="file" class="form-control" id="image" name="c_fname">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-6">
-                    <label for="c_subject" class="text-black">비밀번호 확인<span class="text-danger">*</span></label>
-                    <input type="password" class="form-control" id="password">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-lg-6">
-                    <input type="button" class="btn btn-primary btn-lg btn-block" onclick="update_profile()" value="저장하기">
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
+          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">챌린지</strong></div>
         </div>
       </div>
     </div>
+
+    <div class="site-section">
+      <div class="container">
+
+        <div class="row mb-5">
+          <div class="col-md-9 order-2">
+
+            <div class="row">
+              <div class="col-md-12 mb-5">
+                <div class="float-md-left mb-4"><h2 class="text-black h5">전체보기</h2></div>
+                <div class="d-flex">
+                </div>
+              </div>
+            </div>
+            
+              <div class="row mb-5" id="challengeList" >                                    
+              </div>
+            
+            
+            <div class="row" data-aos="fade-up">
+              <div class="col-md-12 text-center">
+                <div class="site-block-27">
+                  <ul>
+                    <li><a href="#">&lt;</a></li>
+                    <li class="active"><span>1</span></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&gt;</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>        
+    </div>
+  </div>
 
     <footer class="site-footer border-top">
       <div class="container">
@@ -179,7 +157,7 @@
                   <li><a href="#">Sell online</a></li>
                   <li><a href="#">Features</a></li>
                   <li><a href="#">Shopping cart</a></li>
-                  <li><a href="#">Store builder  </a></li>
+                  <li><a href="#">Store builder</a></li>
                 </ul>
               </div>
               <div class="col-md-6 col-lg-4">
@@ -198,14 +176,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <h3 class="footer-heading mb-4">Promo</h3>
-            <a href="#" class="block-6">
-              <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
-              <h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
-              <p>Promo from  nuary 15 &mdash; 25, 2019</p>
-            </a>
-          </div>
+          
           <div class="col-md-6 col-lg-3">
             <div class="block-5 mb-5">
               <h3 class="footer-heading mb-4">Contact Info</h3>
@@ -250,54 +221,53 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
-    
-  <script>
-    $(window.document).ready(function() {
-    userprofile();
-})
-function userprofile() {
-    $.ajax({
-        type: "GET",
-        url: "http://localhost:8080/profiles",
-        data: {},
-        headers: {
-          "Authorization": localStorage.getItem('accessToken')
-        },
-        success: function (response) {
-            const e = (response['data'])
-            $('#userId').text(e['userId'])
-            $('#nickname').text(e['nickname'])
-            $('#phoneNumber').text(e['phoneNumber'])
-            $('#interestArea').text(e['interestArea'])
-            $('#image').text(e['image'])
-        },
-})}
 
-function update_profile(){
-  const settings = {
-    "url": "http://localhost:8080/profiles",
-    "method": "PATCH",
-    "timeout": 0,
-    "headers": {
-      "Authorization": localStorage.getItem('accessToken'),
-      "Content-Type": "application/json"
-    },
-    "data": JSON.stringify({
-      "nickname": $('#nickname').val(),
-      "phoneNumber": $('#phoneNumber').val(),
-      "interestArea": $('#interestArea').val(),
-      "password": $('#password').val(),
-      "image": $('#image').val()
-    }),
-  };
+   <!-- 전체 조회  -->
+    <script>
+      $(window.document).ready(function(){
+        challengeList();
+      })
 
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-    alert("프로필 수정이 완료되었습니다.")
-		window.location.replace('/mypage.html')
-  });
-}
+      function challengeList() {
+        const settings = {
+          "url": "http://localhost:8080/challenges",
+          "method": "GET",
+          "timeout": 0,
+          "headers": {
+            "Authorization": localStorage.getItem('accessToken')
+          },
+};
 
-  </script>
+$.ajax(settings).done(function (response) {
+  const obj = response['data']; 
+  for(let i=0; i<obj.length; i++){
+    const e = obj[i]; // [i] 배열을 순서대로 불러오는 것 
+    const image = e['image'];
+    const title = e['title'];
+    const content = e['content'];
+    const id = e['challengeId'];
+    const temp_html =  `
+              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+                <div class="block-4 text-center border">
+                  <figure class="block-4-image">
+                    <a onclick="window.location.href='/challenge-single.html?id=${id}'"><img src="https://velog.velcdn.com/images/she9742/post/411f77e0-9ed1-408f-a28b-9b61bb4dc299/image.jpg"alt="Image placeholder" class="img-fluid"></a>
+                  </figure>
+                  <div class="block-4-text p-4">
+                    <h3><a onclick="window.location.href='/challenge-single.html?id=${id}'">${title}</a></h3>
+                    <p class="mb-0">${content}</p>
+                  </div>
+                </div>
+              `
+              
+    $('#challengeList').append(temp_html)
+  }
+ 
+});
+      }
+
+      
+    </script>
+   }
+
   </body>
 </html>
