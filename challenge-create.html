@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-family: sans-serif;
+      background: #eee;
+      margin: 0.75rem;
+    }
+
+    section {
+      max-width: 860px;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    .photo-card {
+      display: grid;
+      grid-template-columns: 50% min-content 1fr max-content;
+      grid-template-rows: min-content 1fr min-content;
+      grid-gap: 0.75rem;
+      grid-template-areas: "photo avatar author date" "photo . description description" "photo . . like";
+      background: #fff;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      padding-right: 0.75rem;
+      margin-bottom: 0.75rem;
+      border-radius: 3px;
+      overflow: hidden;
+      /* Uncomment to view grid */
+      /*> * {
+  box-shadow: inset 0 0 1px 0 red
+  }*/
+    }
+
+    .photo {
+      grid-area: photo;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .avatar {
+      grid-area: avatar;
+    }
+
+    .avatar img {
+      border-radius: 50%;
+    }
+
+    .author {
+      grid-area: author;
+      margin: 0;
+    }
+
+    .description {
+      grid-area: description;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .date {
+      grid-area: date;
+      color: #767676;
+      font-size: small;
+    }
+
+    .like {
+      grid-area: like;
+      padding-bottom: 0.75rem;
+      text-align: right;
+    }
+
+    .author,
+    .date {
+      display: flex;
+      align-self: center;
+    }
+
+    .avatar,
+    .author,
+    .date {
+      padding-top: 0.75rem;
+    }
+
+    /* Re-configure card layout for smaller screens */
+    @media (max-width: 640px) {
+      .photo-card {
+        grid-template-columns: min-content 1fr 1fr;
+        grid-template-areas: "avatar author author" "photo photo photo" "description description description" "date date like";
+        padding: 0.75rem 0;
+      }
+
+      .avatar,
+      .author,
+      .date,
+      .like {
+        padding: 0;
+      }
+
+      .avatar img {
+        width: 42px;
+      }
+
+      .like {
+        grid-area: like;
+        padding-bottom: 0.75rem;
+        text-align: right;
+      }
+
+      .avatar,
+      .date {
+        padding-left: 0.75rem;
+      }
+
+      .description {
+        padding: 0 0.75rem;
+      }
+    }
+
+    .fade-text {
+      position: relative;
+      white-space: nowrap;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .fade-text::after {
+      content: "";
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  </style>
+
+  <div class="site-wrap">
+    <header class="site-navbar" role="banner">
+      <div class="site-navbar-top">
+        <div class="container">
+          <div class="row align-items-center">
+
+            <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
+              <form action="" class="site-block-top-search">
+                <span class="icon icon-search2"></span>
+                <input type="text" class="form-control border-0" placeholder="Search">
+              </form>
+            </div>
+
+            <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+              <div class="site-logo">
+                <a href="index.html" class="js-logo-clone">Volunteering</a>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+              <div class="site-top-icons">
+                <ul>
+                  <li><a href="#"><span class="icon icon-person"></span></a></li>
+                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
+                        class="icon-menu"></span></a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <nav class="site-navigation text-right text-md-center" role="navigation">
+        <div class="container">
+          <ul class="site-menu js-clone-nav d-none d-md-block">
+            <li class="has-children active">
+              <a href="index.html">Home</a>
+              <ul class="dropdown">
+                <li><a href="#">Menu One</a></li>
+                <li><a href="#">Menu Two</a></li>
+                <li><a href="#">Menu Three</a></li>
+                <li class="has-children">
+                  <a href="#">Sub Menu</a>
+                  <ul class="dropdown">
+                    <li><a href="#">Menu One</a></li>
+
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="has-children">
+              <a href="volunteerWorkPost.html">봉사활동</a>
+              <ul class="dropdown">
+                <li><a href="#">Menu One</a></li>
+                <li><a href="#">Menu Two</a></li>
+                <li><a href="#">Menu THree</a></li>
+              </ul>
+            </li>
+            <li><a href="challenge.html">챌린지</a></li>
+            <li><a href="challenge-participate.html">챌린지 인증</a></li>
+            <li><a href="notice.html">공지사항</a></li>
+            <li><a href="contact.html">고객지원</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
+              class="text-black">챌린지 등록하기</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-7">
+
+      <form id="challenge" method="get" class="put_post">
+
+        <div class="p-3 p-lg-5 border">
+          <div class="form-group row">
+            <div class="col-md-7">
+              <label for="c_fname" class="text-black">유저아이디<span class="text-danger"></span></label>
+              <label type="text" class="form-control" id="userId" name="c_fname">
+            </div>
+            <div class="col-md-5">
+              <label for="c_fname" class="text-black">첨부파일<span class="text-danger"></span></label>
+              <input type="file" class="form-control" id="image" name="c_fname">
+            </div>
+            <div class="col-md-12">
+              <label for="c_fname" class="text-black">제목<span class="text-danger"></span></label>
+              <input type="text" class="form-control" id="title" name="c_fname">
+            </div>
+
+          </div>
+          <div class="form-group row">
+            <div class="col-md-12">
+              <label for="c_message" class="text-black">내용</label>
+              <textarea name="c_message" id="content" cols="30" rows="7" class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-lg-12">
+              <input type="button" class="btn btn-primary btn-lg btn-block" id="put_btn" value="등록하기"
+                onclick="typeCheck()">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    </section>
+    <footer class="site-footer border-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="footer-heading mb-4">Navigations</h3>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <ul class="list-unstyled">
+                  <li><a href="#">Sell online</a></li>
+                  <li><a href="#">Features</a></li>
+                  <li><a href="#">Shopping cart</a></li>
+                  <li><a href="#">Store builder</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <ul class="list-unstyled">
+                  <li><a href="#">Mobile commerce</a></li>
+                  <li><a href="#">Dropshipping</a></li>
+                  <li><a href="#">Website development</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="block-5 mb-5">
+              <h3 class="footer-heading mb-4">Contact Info</h3>
+              <ul class="list-unstyled">
+                <li class="address">203 Fake St. Mountain View, San Francisco, California, USA</li>
+                <li class="phone"><a href="tel://23923929210">+2 392 3929 210</a></li>
+                <li class="email">emailaddress@domain.com</li>
+              </ul>
+            </div>
+
+            <div class="block-7">
+              <form action="#" method="post">
+                <label for="email_subscribe" class="footer-heading">Subscribe</label>
+                <div class="form-group">
+                  <input type="text" class="form-control py-4" id="email_subscribe" placeholder="Email">
+                  <input type="submit" class="btn btn-sm btn-primary" value="Send">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <p>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;
+              <script data-cfasync="false"
+                src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+              <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
+              with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank"
+                class="text-primary">Colorlib</a>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    $(window.document).ready(function () {
+      userprofile();
+      document.location.href.includes("id") && getChallenge();
+    })
+
+    function typeCheck() {
+      return document.location.href.includes("id") ? putChallege() : postChallenge()
+    }
+
+
+    function postChallenge() {
+      const settings = {
+        "url": "http://localhost:8080/admin/challenges",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+          "Authorization": localStorage.getItem('accessToken'),
+          "Content-Type": "application/json"
+        },
+        "data": JSON.stringify({
+          "userId": $('#userId').val(),
+          "title": $('#title').val(),
+          "image": $('#image').val(),
+          "content": $('#content').val()
+        }),
+      };
+      $.ajax(settings).done(function (response) {
+        alert('챌린지를 등록하였습니다.')
+        window.location.replace('/challenge.html');
+      }
+      );
+    }
+
+
+    function userprofile() {
+      $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/profiles",
+        data: {},
+        headers: {
+          "Authorization": localStorage.getItem('accessToken')
+        },
+        success: function (response) {
+          const e = (response['data'])
+          $('#userId').text(e['userId'])
+        },
+      })
+    }
+
+
+    function getChallenge() {
+      const id = document.location.href.split("=")[1];
+      $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/challenges/" + id,
+        data: {},
+        headers: {
+          "Authorization": localStorage.getItem('accessToken')
+        },
+        success: function (response) {
+          const e = (response['data'])
+          console.log(e)
+          $('#title').attr("value", e['title'])
+          $('#content').text(e['content'])
+          $('image').text(e['image'])
+          $('#put_btn').attr("value", "수정하기")
+          $('.put_post').attr("id", "")
+        },
+      })
+    }
+
+    function putChallege() {
+      const id = document.location.href.split("=")[1];
+      const settings = {
+        "url": "http://localhost:8080/admin/challenges/" + id,
+        "method": "PATCH",
+        "timeout": 0,
+        "headers": {
+          "Authorization": localStorage.getItem('accessToken'),
+          "Content-Type": "application/json"
+        },
+        "data": JSON.stringify({
+          "userId": $('#userId').val(),
+          "title": $('#title').val(),
+          "image": $('#image').val(),
+          "content": $('#content').val()
+
+        }),
+      };
+
+      $.ajax(settings).done(function (response) {
+        alert('챌린지를 수정하였습니다.')
+        window.location.href = '/challenge.html'
+      });
+    }
+  </script>
+</body>
+
+</html>
