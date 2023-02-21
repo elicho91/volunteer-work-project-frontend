@@ -46,7 +46,7 @@
               <div class="site-top-icons">
                 <ul>
                   <li><a><span id="loginUser"></span></a></li>
-                  <li><a href="/login.html"><span class="icon icon-person"></span></a></li>
+                  <li><a onclick="typeCheck()"><span class="icon icon-person"></span></a></li>
                   <li><a href="/mypage.html"><span>MyPage</span></a></li>
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
@@ -317,6 +317,27 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
+
+  <!-- 로그인 체크 -->
+  <script>
+    function typeCheck() {
+      return document.location.href ? login() : connecting()
+    }
+  </script>
+
+  <script>
+    function login() {
+      window.location.href="/login.html"
+    }
+  </script>
+
+    <!-- connecting -->
+  <script>
+    function connecting() {
+      alert("이미 로그인 되어있습니다.")
+      window.location.href="/index.html"
+    }
+  </script>
     
   </body>
 </html>
