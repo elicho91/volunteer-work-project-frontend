@@ -136,7 +136,7 @@
             </div>
 
             </div>
-            <p><a type="button" class="buy-now btn btn-sm btn-primary" onclick="updatePost()">수정</a></p>
+            <p><a href="enrollment.html" class="buy-now btn btn-sm btn-primary">수정</a></p>
             <p><a type="button" class="buy-now btn btn-sm btn-primary" onclick="deletePost()">삭제</a></p>
 
 
@@ -255,14 +255,7 @@
         },
       })
     }
-  </script>
 
-  <!-- 선택 수정 -->
-  <script>
-    function updatePost() {
-      const id = document.location.href.split("=")[1]
-      window.location.href = '/volunteerWorkPostCreate.html?id=' + id
-    }
   </script>
 
   <!-- 선택 삭제 -->

@@ -127,20 +127,17 @@
             <form  id = "volunteerWorkPost_menu1" method="get" class="put_post">
               <!-- action="volunteerWorkPost_menu1.html"        -->
               <div class="p-3 p-lg-5 border">
-
                 <div class="form-group row">
                   <div class="col-md-6">
                     <label for="c_fname" class="text-black">제목<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="title" name="c_fname">
                   </div>
-                </div>
-              
+                </div>       
                 <div class="form-group row">
                   <div class="col-md-6">
-                    <label for="c_fname" class="text-black"><span class="text-danger"><p>모집 날짜*: <input type="date" id="datepicker"></p></span></label>
+                    <label for="c_fname" class="text-black"><span class="text-danger"><p>모집 날짜*: <input type="text" id="datepicker"></p></span></label>
                   </div>
                 </div>  
-
                 <div class="form-group row">
                   <div class="col-md-6">
                     <label for="c_fname" class="text-black"><span class="text-danger">
@@ -150,18 +147,7 @@
                       </p>
                     </span></label>
                   </div>
-                </div>
-                
-                <div class="form-group row">
-                  <div class="col-md-12">
-                    <label for="c_email" class="text-black">카테고리<span class="text-danger">*</span></label>
-                    <select id="category" name="category" onchange="categoryList">
-                      <option>동물 보호 센터</option> 
-                      <option>기업 / 단체 봉사</option> 
-                      <option>기타</option> 
-                    </select> 
-                  </div>
-                 </div>
+                </div> 
 
                 <div class="form-group row">
                   <div class="col-md-12">
@@ -184,9 +170,7 @@
                       <option>경남</option> 
                       <option>제주</option>
                     </select> 
-                    <input type="text" class="form-control" id="centerName" name="c_email" placeholder="">
-                  </div>
-                 </div>
+                 <input type="text" class="form-control" id="centerName" name="c_email" placeholder="">
 
                 <div class="form-group row">
                   <div class="col-md-12">
@@ -197,7 +181,7 @@
 
                 <div class="form-group row">
                   <div class="col-lg-12">
-                    <input type="button" id="put_btn" class="btn btn-primary btn-lg btn-block" onclick="typeCheck()" value="등록하기">
+                    <input type="submit" id="put_btn" class="btn btn-primary btn-lg btn-block" onclick="createPost()" value="등록하기">
                   </div>
                 </div>
               </div>
@@ -315,32 +299,26 @@
     $( "#getvalue" ).on( "click", function() {
       alert( spinner.spinner( "value" ) );
     });
+    $( "#setvalue" ).on( "click", function() {
+      spinner.spinner( "value", 1 );
+    });
+ 
     $( "button" ).button();
   } );
   </script>
 
   <!-- 달력 -->
   <script>
-    var picker = new Pickaday({
-      
-    })
-  // $( function() {
-  //   $( "#datepicker" ).datepicker();
-  // } );
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
   </script>
 
-  <!-- 등록/ 수정 변경 -->
-  <script>
-    function typeCheck() {
-      return document.location.href.includes("id") ? updatePost() : createPost()
-    }
-  </script>
-
-  <!-- 게시글 등록하기 -->
+  <!-- 게시글 작성 -->
   <script>
     function createPost() {
      const settings = {
-    "url": "http://localhost:8080/volunteerWorkPost",
+    "url": "http://localhost:8080/volunteerWorkPosts",
     "method": "POST",
     "timeout": 0,
     "headers": {
@@ -360,14 +338,35 @@
 
 $.ajax(settings).done(function (response) {
   alert("등록되었습니다.")
-  window.location.href="/volunteerWorkPost_menu1.html"
+  window.location.href = "/volunteerWorkPost_menu1.html"
 });
 }
   </script>
 
-  <!-- 게시글 수정하기 -->
+  <!-- 수정하기 -->
   <script>
-    function updatePost() {
+    function getPost() {
+      const id = document.location.href.split("=")[1];
+      $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/volunteerWorkPosts/" + id,
+        data: {},
+        headers: {
+          "Authorization": localStorage.getItem('accessToken')
+        },
+        success: function (response) {
+          const e = (response['data'])
+          console.log(e)
+          $('#title').attr("value", e['title'])
+          $('#content').text(e['content'])
+          $('image').text(e['image'])
+          $('#put_btn').attr("value", "수정하기")
+          $('.put_post').attr("id", "")
+        },
+      })
+    }
+
+    function putChallege() {
       const id = document.location.href.split("=")[1];
       const settings = {
         "url": "http://localhost:8080/volunteerWorkPosts/" + id,
@@ -378,18 +377,17 @@ $.ajax(settings).done(function (response) {
           "Content-Type": "application/json"
         },
         "data": JSON.stringify({
-          "title": $("#title").val(),
-          "content": $("#content").val(),
-          "postStatus": $("#postStatus").val(),
-          "area": $("#area").val(),
-          "datepicker": $("#datepicker").val(),
-          "spinner": $("#spinner").val(),
-          "centerName": $("#centerName").val()
+          "userId": $('#userId').val(),
+          "title": $('#title').val(),
+          "image": $('#image').val(),
+          "content": $('#content').val()
+
         }),
       };
+
       $.ajax(settings).done(function (response) {
         alert('챌린지를 수정하였습니다.')
-        window.location.href='/volunteerWorkPost_menu1.html'
+        window.location.href = '/volunteerWorkPost_menu1.html'
       });
     }
   </script>
