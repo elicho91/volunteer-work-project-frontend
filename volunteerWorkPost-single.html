@@ -110,21 +110,20 @@
             <img src="images/cloth_1.jpg" alt="Image" class="img-fluid">
           </div>
           <div class="col-md-6">
-            <h2 class="text-black">title</h2>
-            <p>진행일자 모집인원 </p>
-            <p class="mb-4">내용 + 부가기능</p>
-            <p><strong class="text-primary h4">모집 상태</strong></p>
-            <div class="mb-1 d-flex">
-              <label for="option-sm" class="d-flex mr-3 mb-3">
-                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-sm" name="shop-sizes"></span> <span class="d-inline-block text-black">좋아요</span>
-              </label>
-              <label for="option-md" class="d-flex mr-3 mb-3">
-                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-md" name="shop-sizes"></span> <span class="d-inline-block text-black">참여하기</span>
-              </label>
-              <label for="option-lg" class="d-flex mr-3 mb-3">
-                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-lg" name="shop-sizes"></span> <span class="d-inline-block text-black">신고</span>
-              </label>
+            <div id = "title"><h2 class="text-black" ></h2></div>
+            <div id = "datepicker"><p></p></div>
+            <div id = "spinner"><p></p></div>
+            <div><p class="mb-4" id = "content"><strong></strong></p></div>
+            <div id = "area">
+              <p><strong class="text-primary h4"></strong></p>
             </div>
+            <div id = "centerName">
+              <p><strong class="text-primary h4"></strong></p>
+            </div>
+            <div id = "collectNum">
+              <p><strong class="text-primary h4"></strong></p>
+            </div>
+
             <div class="mb-5">
               <div class="input-group mb-3" style="max-width: 120px;">
               <div class="input-group-prepend">
@@ -137,9 +136,8 @@
             </div>
 
             </div>
-            <p><a href="enrollment.html" class="buy-now btn btn-sm btn-primary">참여 신청하기</a></p>
             <p><a href="enrollment.html" class="buy-now btn btn-sm btn-primary">수정</a></p>
-            <p><a href="enrollment.html" class="buy-now btn btn-sm btn-primary">삭제</a></p>
+            <p><a type="button" class="buy-now btn btn-sm btn-primary" onclick="deletePost()">삭제</a></p>
 
 
           </div>
@@ -232,6 +230,58 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
+
+  <!-- 선택 조회 -->
+  <script>
+    $(window.document).ready(function() {
+      workPost();
+    })
+    function workPost() {
+      const id = document.location.href.split("=")[1];
+      $.ajax ({
+        type: "GET",
+        url:"http://localhost:8080/volunteerWorkPosts/" + id ,
+        data: {},
+        headers: {
+          "Authorization" : localStorage.getItem('accessToken')
+        },
+        success: function (response) {
+          const e = (response['data'])
+            $('#title').text(e['title'])
+            $('#content').text(e['content'])
+            $('#area').text(e['area'])
+            $('#centerName').text(e['centerName'])
+            
+        },
+      })
+    }
+
+  </script>
+
+  <!-- 선택 삭제 -->
+  <script>
+    $(window.document).ready(function() {
+    })
+    function deletePost() {
+      const id = document.location.href.split("=")[1];
+      $.ajax({
+        type: "DELETE",
+        url: "http://localhost:8080/volunteerWorkPosts/" + id,
+        data: {},
+        headers: {
+          Authorization : localStorage.getItem("accessToken")
+        },
+        success: function(response) {
+          alert("삭제되었습니다.")
+          window.location.href = "/volunteerWorkPost_menu1.html"
+        },
+        error: function(errorMessage) {
+          alert(errorMessage["responseJSON"]["message"]) 
+        }
+      })
+    }
+
+  </script>
     
   </body>
 
