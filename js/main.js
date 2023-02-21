@@ -232,6 +232,7 @@ function signout(){
 	  };
 	  
 	  $.ajax(settings).done(function (response) {
+		localStorage.clear();
 		console.log(response);
 		alert("로그아웃이 완료되었습니다.")
 		window.location = '/index.html'
