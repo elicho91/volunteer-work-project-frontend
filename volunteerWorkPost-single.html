@@ -136,8 +136,9 @@
             </div>
 
             </div>
-            <p><a href="enrollment.html" class="buy-now btn btn-sm btn-primary">수정</a></p>
-            <p><a type="button" class="buy-now btn btn-sm btn-primary" onclick="deletePost()">삭제</a></p>
+            <p><a type="button" class="buy-now btn btn-sm btn-primary" onclick="enrollment()">참여 신청</a></p>
+            <tr><th><a type="button" class="buy-now btn btn-sm btn-primary" onclick="updatePost()">수정</a></th>
+            <th><a type="button" class="buy-now btn btn-sm btn-primary" onclick="deletePost()">삭제</a></th><tr>
 
 
           </div>
@@ -258,6 +259,14 @@
 
   </script>
 
+  <!-- 선택 수정 -->
+  <script>
+    function updatePost() {
+      const id = document.location.href.split("=")[1];
+      window.location.href='volunteerWorkPostCreate.html?id=' + id
+    }
+  </script>
+
   <!-- 선택 삭제 -->
   <script>
     $(window.document).ready(function() {
@@ -280,7 +289,27 @@
         }
       })
     }
+  </script>
 
+  <!-- 참여 신청 -->
+  <script>
+    function enrollment() {
+      const id = document.location.href.split("=")[1];
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:8080/volunteerWorkPosts/" + id,
+        data:{},
+        headers: {
+          Authorization : localStorage.getItem("accessToken")
+        },
+        success: function(response) {
+          alert("참여 신청 성공")
+        },
+        error: function(errorMessage) {
+          alert(errorMessage["responseJSON"]["message"])
+        }
+      })
+    }
   </script>
     
   </body>
