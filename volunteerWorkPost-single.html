@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
-    
+
   </head>
   <body>
   
@@ -139,7 +139,24 @@
             </div>
 
             </div>
-            <p><a type="button" class="buy-now btn btn-sm btn-primary" onclick="enrollment()">참여 신청</a></p>
+            <!-- <p><a type="button" class="buy-now btn btn-sm btn-primary" onclick="enrollment()">참여 신청</a></p>    -->
+              <p>
+                <button class="button" data-for="js_basic-popup">참여 신청</button>               
+              <div class="popup js_basic-popup">
+                <div class="popup__background"></div>
+                <div class="popup__content">
+                  <p>
+                    이름
+                  </p>
+                  <input type="text" id="username" name="username">
+                  <p>핸드폰 번호</p>
+                  <input type="text" id="phoneNum" name="phoneNum">
+                  <p>
+                    <button class="button" data-for="js_basic-popup" onclick="enrollment()">신청하기</button>
+                  </p>
+                </div>
+              </div>
+
             <tr><th><a type="button" class="buy-now btn btn-sm btn-primary" onclick="updatePost()">수정</a></th>
             <th><a type="button" class="buy-now btn btn-sm btn-primary" onclick="deletePost()">삭제</a></th><tr>
 
@@ -224,6 +241,232 @@
       </div>
     </footer>
   </div>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Roboto:100,400");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    *:before, *:after {
+      box-sizing: inherit;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      padding: 24px 32px;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #444;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #ddd;
+      font-size: 32px;
+      font-weight: 100;
+      color: #626262;
+    }
+
+    p {
+      margin-bottom: 8px;
+    }
+
+    a {
+      color: #2196f3;
+    }
+
+    input:focus {
+      box-shadow: none;
+      outline: 0;
+    }
+    input[type=text] {
+      width: 400px;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+    }
+
+    .button {
+      margin-bottom: 4px;
+      padding: 8px 12px;
+      border: 1px solid #7971ea;
+      border-radius: 3px;
+      background: #7971ea;
+      cursor: pointer;
+      font-family: inherit;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .button:focus {
+      outline: none;
+    }
+    .button--warning {
+      border: 1px solid;
+    }
+
+    .popup {
+      visibility: hidden;
+      transition: visibility 0ms linear 0.3s;
+
+    }
+    .popup--visible {
+      visibility: visible;
+      transition: visibility 0ms;
+    }
+
+    .popup__background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10000;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .popup--visible .popup__background {
+      opacity: 1;
+    }
+    .popup__content {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      z-index: 10001;
+      min-width: 400px;
+      padding: 25px 50px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      text-align: center;
+      -webkit-animation: hide-popup 0.3s forwards;
+              animation: hide-popup 0.3s forwards;
+      /**
+      * Popup types.
+      */
+    }
+    .popup--visible .popup__content {
+      -webkit-animation: show-popup 0.3s forwards;
+              animation: show-popup 0.3s forwards;
+    }
+    .popup--icon .popup__content {
+      padding-top: 130px;
+
+    }
+    .popup--icon .popup__content:before, .popup--icon .popup__content:after {
+      position: absolute;
+      top: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+      height: 90px;
+      width: 90px;
+    }
+    .popup--icon .popup__content:before {
+      content: "";
+      border: 3px solid currentColor;
+      border-radius: 50%;
+      transform: translateX(-50%) scale(1, 0);
+      opacity: 0;
+    }
+    .popup--icon .popup__content:after {
+      content: "✓";
+      line-height: 90px;
+      font-size: 45px;
+      transform: translateX(-50%) scale(0);
+      opacity: 0;
+    }
+    .popup--visible.popup--icon .popup__content:before {
+      -webkit-animation: show-icon-cirlce 0.3s forwards 0.15s;
+              animation: show-icon-cirlce 0.3s forwards 0.15s;
+    }
+    .popup--visible.popup--icon .popup__content:after {
+      -webkit-animation: show-icon 0.3s forwards 0.3s;
+              animation: show-icon 0.3s forwards 0.3s;
+    }
+
+    .popup--icon .popup__content__title {
+      margin-bottom: 10px;
+      font-size: 28px;
+      font-weight: 100;
+      color: #626262;
+    }
+    @-webkit-keyframes show-popup {
+      0% {
+        transform: translate(-50%, -50%) scale(0.7);
+        opacity: 0;
+      }
+      45% {
+        transform: translate(-50%, -50%) scale(1.05);
+        opacity: 1;
+      }
+      80% {
+        transform: translate(-50%, -50%) scale(0.95);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+    @keyframes show-popup {
+      0% {
+        transform: translate(-50%, -50%) scale(0.7);
+        opacity: 0;
+      }
+      45% {
+        transform: translate(-50%, -50%) scale(1.05);
+        opacity: 1;
+      }
+      80% {
+        transform: translate(-50%, -50%) scale(0.95);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+    @-webkit-keyframes hide-popup {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+      }
+    }
+    @keyframes hide-popup {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+      }
+    }
+    @-webkit-keyframes show-icon {
+      0% {
+        transform: translateX(-50%) scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+      }
+    }
+    @keyframes show-icon {
+      0% {
+        transform: translateX(-50%) scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+      }
+    }
+    </style>
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -234,7 +477,17 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
+  <script>
+    const addButtonTrigger = (el) => {
+	el.addEventListener('click', () => {
+		const popupEl = document.querySelector(`.${el.dataset.for}`);
+		popupEl.classList.toggle('popup--visible');
+	});
+};
 
+Array.from(document.querySelectorAll('button[data-for]'))
+           .forEach(addButtonTrigger); 
+  </script>
   <!-- 선택 조회 -->
   <script>
     $(window.document).ready(function() {
@@ -299,20 +552,26 @@
   <script>
     function enrollment() {
       const id = document.location.href.split("=")[1];
-      $.ajax({
-        type: "POST",
-        url: "http://localhost:8080/volunteerWorkPosts/" + id,
-        data:{},
-        headers: {
-          Authorization : localStorage.getItem("accessToken")
+      const settings = {
+        "url": "http://localhost:8080/volunteerWorkPosts/" + id + "/enrollments",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+          "Authorization": localStorage.getItem("accessToken"),
+          "Content-Type": "application/json"
         },
-        success: function(response) {
-          alert("참여 신청 성공")
-        },
-        error: function(errorMessage) {
-          alert(errorMessage["responseJSON"]["message"])
-        }
-      })
+        "data": JSON.stringify({
+          "username": $("#username").val(),
+          "phoneNum": $("#phoneNum").val()
+        }),
+      };
+
+      $.ajax(settings).done(function (response) {
+        alert("신청하였습니다.")
+      });
+      $.ajax(settings).fail(function (response) {
+        alert("이미 신청한 게시글입니다.")
+      });
     }
   </script>
     
