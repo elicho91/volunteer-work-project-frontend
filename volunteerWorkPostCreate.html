@@ -19,11 +19,11 @@
     <link rel="stylesheet" href="css/style.css">
 
 
-    <meta charset="utf-8">
+ <!-- <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>jQuery UI Datepicker - Default functionality</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="/resources/demos/style.css"> -->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -134,7 +134,7 @@
                 </div>       
                 <div class="form-group row">
                   <div class="col-md-6">
-                    <label for="c_fname" class="text-black"><span class="text-danger"><p>모집 날짜*: <input type="date" id="datepicker"></p></span></label>
+                    <label for="c_fname" class="text-black"><span class="text-danger"><p>모집 날짜*: <input type="date" id="date"></p></span></label>
                   </div>
                 </div>  
                 <div class="form-group row">
@@ -151,23 +151,23 @@
                 <div class="form-group row">
                   <div class="col-md-12">
                     <label for="c_email" class="text-black">지역<span class="text-danger">*</span></label>
-                    <select id="area" name="area" onchange="areaList">
-                      <option>서울</option> 
-                      <option>부산</option> 
-                      <option>대구</option> 
-                      <option>인천</option> 
-                      <option>광주</option>
-                      <option>울산</option> 
-                      <option>세종</option> 
-                      <option>경기</option>
-                      <option>강원</option> 
-                      <option>충북</option> 
-                      <option>충남</option> 
-                      <option>전북</option> 
-                      <option>전남</option> 
-                      <option>경북</option> 
-                      <option>경남</option> 
-                      <option>제주</option>
+                    <select id="area" name="area">
+                      <option value="서울">서울</option> 
+                      <option value="부산">부산</option> 
+                      <option value="대구">대구</option> 
+                      <option value="인천">인천</option> 
+                      <option value="광주">광주</option>
+                      <option value="울산">울산</option> 
+                      <option value="세종">세종</option> 
+                      <option value="경기">경기</option>
+                      <option value="강원">강원</option> 
+                      <option value="충북">충북</option> 
+                      <option value="충남">충남</option> 
+                      <option value="전북">전북</option> 
+                      <option value="전남">전남</option> 
+                      <option value="경북">경북</option> 
+                      <option value="경남">경남</option> 
+                      <option value="제주">제주</option>
                     </select> 
                   <input type="text" class="form-control" id="centerName" name="c_email" placeholder="">
                   </div>
@@ -307,9 +307,9 @@
 
   <!-- 달력 -->
   <script>
-  $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
+  // $( function() {
+  //   $( "#datepicker" ).datepicker();
+  // } );
   </script>
 
   <!-- 등록 / 수정 변경 -->
@@ -335,7 +335,7 @@
         "content": $("#content").val(),
         "postStatus": $("#postStatus").val(),
         "area": $("#area").val(),
-        "datepicker": $("#datepicker").val(),
+        "date": $("#date").val(),
         "spinner": $("#spinner").val(),
         "centerName": $("#centerName").val()
       }),
@@ -365,7 +365,7 @@
           "content": $('#content').val(),
           "postStatus": $('#postStatus').val(),
           "area": $('#area').val(),
-          "datepicker": $('#datepicker').val(),
+          "date": $('#date').val(),
           "spinner": $('#spinner').val(),
           "centerName": $('#centerName').val(),
         }),
