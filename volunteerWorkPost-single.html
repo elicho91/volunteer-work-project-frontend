@@ -676,6 +676,7 @@ html, body {
             $('#area').text(e['area'])
             $('#centerName').text(e['centerName'])
             $('#date').text(e['date'])
+            $('#maxEnrollmentNum').text(e['maxEnrollmentNum'])
             
         },
       })
@@ -744,7 +745,7 @@ html, body {
 
   <!-- 참여조회 -->
   <script>
-        $(window.document).ready(function() {
+    $(window.document).ready(function() {
       getEnrollmentList();
     })
     function getEnrollmentList() {
@@ -766,15 +767,15 @@ html, body {
             const phoneNum = obj["phoneNum"]
             const enrollmentStatus = obj["enrollmentStatus"] === "TRUE"
             const tempHtml = `
-                            <tbody>
-                                  <tr>
-                                      <td>${userId}</td>
-                                      <td>${username}</td>
-                                      <td>${phoneNum}</td>
-                                      <td>${enrollmentStatus ? "대기 중":"신청 완료"}</td>
-                                  </tr>
-                              </tbody>
-                                    `
+              <tbody>
+                  <tr>
+                    <td>${userId}</td>
+                    <td>${username}</td>
+                    <td>${phoneNum}</td>
+                    <td>${enrollmentStatus ? "대기 중":"신청 완료"}</td>
+                  </tr>
+              </tbody>
+              `
             $("#application_list").append(tempHtml)
 
           }

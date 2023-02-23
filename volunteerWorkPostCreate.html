@@ -142,7 +142,7 @@
                     <label for="c_fname" class="text-black"><span class="text-danger">
                       <p>
                         <label for="spinner">모집 인원 수:</label>
-                        <input id="spinner" name="spinner">
+                        <input id="maxEnrollmentNum" name="maxEnrollmentNum">
                       </p>
                     </span></label>
                   </div>
@@ -336,7 +336,7 @@
         "postStatus": $("#postStatus").val(),
         "area": $("#area").val(),
         "date": $("#date").val(),
-        "spinner": $("#spinner").val(),
+        "maxEnrollmentNum": $("maxEnrollmentNum").val(),
         "centerName": $("#centerName").val()
       }),
     };
@@ -366,7 +366,7 @@
           "postStatus": $('#postStatus').val(),
           "area": $('#area').val(),
           "date": $('#date').val(),
-          "spinner": $('#spinner').val(),
+          "maxEnrollmentNum": $('#maxEnrollmentNum').val(),
           "centerName": $('#centerName').val(),
         }),
       };
