@@ -13,33 +13,34 @@
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    
 
-
-    <link rel="stylesheet" href="css/aos.css">
+    <!-- <link rel="stylesheet" href="css/aos.css"> -->
 
     <link rel="stylesheet" href="/css/notice.css">
     
   </head>
   <body>
   
-    <div class="site-wrap">
-      <header class="site-navbar" role="banner">
-        <div class="site-navbar-top">
-          <div class="container">
-            <div class="row align-items-center">
-  
-              <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-                <form action="" class="site-block-top-search">
-                  <span class="icon icon-search2"></span>
-                  <input type="text" class="form-control border-0" placeholder="검색">
-                </form>
+  <div class="site-wrap">
+    <header class="site-navbar" role="banner">
+      <div class="site-navbar-top">
+        <div class="container">
+          <div class="row align-items-center">
+
+            <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
+              <form action="" class="site-block-top-search">
+                <span class="icon icon-search2"></span>
+                <input type="text" class="form-control border-0" placeholder="Search">
+              </form>
+            </div>
+
+            <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+              <div class="site-logo">
+                <a href="index.html" class="js-logo-clone">Shoppers</a>
               </div>
-  
-              <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
-                <div class="site-logo">
-                  <a href="index.html" class="js-logo-clone">VOLUNTEERING</a>
-                </div>
-              </div>
+            </div>
 
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
               <div class="site-top-icons">
@@ -63,7 +64,7 @@
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="has-children">
+            <li class="has-children active">
               <a href="index.html">Home</a>
               <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
@@ -73,8 +74,7 @@
                   <a href="#">Sub Menu</a>
                   <ul class="dropdown">
                     <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
+
                   </ul>
                 </li>
               </ul>
@@ -99,37 +99,13 @@
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">공지사항</strong></div>
+          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop</strong></div>
         </div>
       </div>
     </div>
 
     <div class="site-section">
-      <script>
-        $(document).ready(function(){
-          // Activate tooltip
-          $('[data-toggle="tooltip"]').tooltip();
-          
-          // Select/Deselect checkboxes
-          var checkbox = $('table tbody input[type="checkbox"]');
-          $("#selectAll").click(function(){
-            if(this.checked){
-              checkbox.each(function(){
-                this.checked = true;                        
-              });
-            } else{
-              checkbox.each(function(){
-                this.checked = false;                        
-              });
-            } 
-          });
-          checkbox.click(function(){
-            if(!this.checked){
-              $("#selectAll").prop("checked", false);
-            }
-          });
-        });
-        </script>
+      
         </head>
         <body>
         <div class="container-xl">
@@ -138,11 +114,11 @@
               <div class="table-title">
                 <div class="row">
                   <div class="col-sm-6">
-                    <h2>공지사항</h2>
+                    <h2>Manage <b>Notice</b></h2>
                   </div>
                   <div class="col-sm-6">
-                    <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>공지사항 등록하기</span></a>
-                    <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>삭제하기</span></a>						
+                    <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
+                    					
                   </div>
                 </div>
               </div>
@@ -166,63 +142,16 @@
                 <tbody id="notice_body">
 
                   
-                  <tr>
-                    <td>
-                      <span class="custom-checkbox">
-                        <input type="checkbox" id="checkbox3" name="options[]" value="1">
-                        <label for="checkbox3"></label>
-                      </span>
-                    </td>
-                    <td>Maria Anders</td>
-                    <td>mariaanders@mail.com</td>
-                    <td>25, rue Lauriston, Paris, France</td>
-                    <td>(503) 555-9931</td>
-                    <td>
-                      <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <span class="custom-checkbox">
-                        <input type="checkbox" id="checkbox4" name="options[]" value="1">
-                        <label for="checkbox4"></label>
-                      </span>
-                    </td>
-                    <td>Fran Wilson</td>
-                    <td>franwilson@mail.com</td>
-                    <td>C/ Araquil, 67, Madrid, Spain</td>
-                    <td>(204) 619-5731</td>
-                    <td>
-                      <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>					
-                  <tr>
-                    <td>
-                      <span class="custom-checkbox">
-                        <input type="checkbox" id="checkbox5" name="options[]" value="1">
-                        <label for="checkbox5"></label>
-                      </span>
-                    </td>
-                    <td>Martin Blank</td>
-                    <td>martinblank@mail.com</td>
-                    <td>Via Monte Bianco 34, Turin, Italy</td>
-                    <td>(480) 631-2097</td>
-                    <td>
-                      <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr> 
+                  
                 </tbody>
               </table>
               <div class="clearfix">
                 <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
                 <ul class="pagination">
                   <li class="page-item disabled"><a href="#">Previous</a></li>
-                  <li class="page-item"><a href="#" class="page-link">1</a></li>
+                  <li class="page-item" active><a href="#" class="page-link">1</a></li>
                   <li class="page-item"><a href="#" class="page-link">2</a></li>
-                  <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                  <li class="page-item "><a href="#" class="page-link">3</a></li>
                   <li class="page-item"><a href="#" class="page-link">4</a></li>
                   <li class="page-item"><a href="#" class="page-link">5</a></li>
                   <li class="page-item"><a href="#" class="page-link">Next</a></li>
@@ -295,7 +224,7 @@
             <div class="modal-content">
               <form>
                 <div class="modal-header">						
-                  <h4 class="modal-title">Delete Employee</h4>
+                  <h4 class="modal-title">Delete Notice</h4>
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">					
@@ -304,13 +233,41 @@
                 </div>
                 <div class="modal-footer">
                   <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                  <input type="submit" class="btn btn-danger" value="Delete">
+                  <input type="submit" class="btn btn-danger" value="Delete" onclick="delete_notice()">
                 </div>
               </form>
             </div>
           </div>
         </div>
 
+       <!-- 모달 -->
+<div id="notice_Modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">						
+          <h4 class="modal-title">공지사항</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">                  
+          <div class="form-group">
+            <label>제목 :</label>
+            <span id="notice_title"></span>
+          </div>
+          <div class="form-group">
+            <label>내용 :</label>
+            <span id="notice_content"></span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-default" data-dismiss="modal" value="Close">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+          
+          
 
 
     </div>
@@ -380,7 +337,7 @@
           <div class="col-md-12">
             <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
+            <!-- Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a> -->
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>
@@ -397,6 +354,31 @@
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
+  <script>
+    $(document).ready(function(){
+      // Activate tooltip
+      $('[data-toggle="tooltip"]').tooltip();
+      
+      // Select/Deselect checkboxes
+      const checkbox = $('table tbody input[type="checkbox"]');
+      $("#selectAll").click(function(){
+        if(this.checked){
+          checkbox.each(function(){
+            this.checked = true;                        
+          });
+        } else{
+          checkbox.each(function(){
+            this.checked = false;                        
+          });
+        } 
+      });
+      checkbox.click(function(){
+        if(!this.checked){
+          $("#selectAll").prop("checked", false);
+        }
+      });
+    });
+    </script>
 
   <script src="js/main.js"></script>
  <!-- 공지사항 불러오기   -->
@@ -429,23 +411,26 @@
     const month = notice_date.getMonth();
     const date = notice_date.getDate();
     const hour = notice_date.getHours()
+    const min = notice_date.getMinutes();
       const temp_html = `
-        <tr>
-          <td>
-            <span class="custom-checkbox">
-              <input type="checkbox" id="checkbox3" name="options[]" value="1">
-              <label for="checkbox3"></label>
-            </span>
-          </td> 
-          <td>${title}</td>
-          <td>${content}</td>
-          <td>${year}/${month}/${date}/${hour}</td>
-          
-          <td>
-            <a href="#editEmployeeModal" class="edit" notice-id="${noticeId}" onClick="patch_notice(${noticeId})" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-            <a href="#deleteEmployeeModal" class="delete" notice-id="${noticeId}"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-          </td>
-        </tr>
+      <tr>
+  <td>
+    <span class="custom-checkbox">
+      <input type="checkbox" id="checkbox3" name="options[]" value="1">
+      <label for="checkbox3"></label>
+    </span>
+  </td> 
+  <td><a href="#" data-notice-id="${noticeId}" data-toggle="modal" data-target="#notice_Modal">${title}</a></td>
+<td><a href="#" data-notice-id="${noticeId}" data-toggle="modal" data-target="#notice_Modal">${content}</a></td>
+
+  <td>${year}/${month}/${date}/${hour}:${min}</td>
+  
+  <td>
+    <a href="#editEmployeeModal" class="edit" notice-id="${noticeId}"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">수정</i></a>
+    <a href="#deleteEmployeeModal" class="delete" notice-id="${noticeId}"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">삭제</i></a>
+  </td>
+</tr>
+
       `
       $('#notice_body').append(temp_html)
       
@@ -453,6 +438,8 @@
   
   });
 }
+
+
 // 공지사항 작성하기
 function post_notice(){
 const settings = {
@@ -474,37 +461,16 @@ $.ajax(settings).done(function (response) {
 });
 }
 
-// // 공지사항 수정하기 
 
-
-// function patch_notice(id){
-//   console.log($('#patch_title').val(),  $('#patch_content').val(),e);
+var currentNoticeId ;
+// 공지사항 수정하기 
+$(document).on('click', '.edit', function() {
+  currentNoticeId = $(this).attr('notice-id');
+});
  
 
-// const settings = {
-//   "url": "http://localhost:8080/admin/notices/"+id,
-//   "method": "PATCH",
-//   "timeout": 0,
-//   "headers": {
-//     "Authorization": localStorage.getItem('accessToken'),
-//     "Content-Type": "application/json"
-//   },
-//   "data": JSON.stringify({
-//     "title": $('#patch_title').val(),
-//     "content": $('#patch_content').val()
-//   }),
-// };
-
-// $.ajax(settings).done(function (response) {
-//   const obj = response['data'];
-//   const id =obj['noticeId'];
-//   console.log(id)
-//   noticeId = obj.id
-// });
-// }
-// 공지사항 수정하기 
-
-function patch_notice(){
+function patch_notice() {
+console.log(currentNoticeId);
   const settings = {
     "url": "http://localhost:8080/admin/notices/" + currentNoticeId,
     "method": "PATCH",
@@ -524,20 +490,57 @@ function patch_notice(){
   });
 }
 
-// 공지사항 수정하기 
-$(document).on('click', '.edit', function() {
+
+//// 공지사항 삭제 
+
+$(document).on('click', '.delete', function() {
   currentNoticeId = $(this).attr('notice-id');
+
+  const settings = {
+    "url": "http://localhost:8080/admin/notices/" + currentNoticeId,
+    "method": "DELETE",
+    "timeout": 0,
+    "headers": {
+      "Authorization": localStorage.getItem('accessToken'),
+      "Content-Type": "application/json"
+    },
+    "data": JSON.stringify({})
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
 });
 
-// 모달 닫힐 때 input 초기화
-$('#editEmployeeModal').on('hidden.bs.modal', function () {
-  $('#patch_title').val('');
-  $('#patch_content').val('');
+
+///공지사항 선택조회
+$(document).on('click', 'a[data-notice-id]', function() {
+  const currentNoticeId = $(this).data('notice-id');
+
+  // 공지사항 내용 조회
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:8080/notices/" + currentNoticeId,
+    headers: {
+      "Authorization": localStorage.getItem('accessToken'),
+      "Content-Type": "application/json"
+    },
+    success: function(response) {
+      console.log(response)
+      const { title, content } = response.data;
+      // 모달창의 제목과 내용에 값을 넣어줍니다.
+      $('#notice_Modal .modal-body #notice_title').text(title);
+      $('#notice_Modal .modal-body #notice_content').text(content);
+      
+      // 모달창을 보여줍니다.
+      $('#notice_Modal').modal('show');
+    }
+  });
 });
 
 </script>
 
-</script>
+
 
 
  </body>
