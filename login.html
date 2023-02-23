@@ -14,10 +14,15 @@
   <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png">
 </a>
 <body>
-    <p class="tip">Click on button in image container</p>
+  <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+    <div class="site-logo">
+      <p class="tip"><a href="index.html" class="js-logo-clone">VOLUNTEERING</a></p>
+    </div>
+  </div>
+    
 <div class="cont">
   <div class="form sign-in">
-    <h2>Welcome back,</h2>
+    <h2>로그인</h2>
     <label>
       <span>Email</span>
       <input id="login_id" type="email" />
@@ -34,12 +39,10 @@
   <div class="sub-cont">
     <div class="img">
       <div class="img__text m--up">
-        <h2>New here?</h2>
-        <p>Sign up and discover great amount of new opportunities!</p>
+        <h2>회원가입</h2>
       </div>
       <div class="img__text m--in">
-        <h2>One of us?</h2>
-        <p>If you already has an account, just sign in. We've missed you!</p>
+        <h2>로그인</h2>
       </div>
       <div class="img__btn">
         <span class="m--up">Sign Up</span>
@@ -47,18 +50,22 @@
       </div>
     </div>
     <div class="form sign-up">
-      <h2>Time to feel like home,</h2>
-      <label>
-        <span>Nickname</span>
-        <input id="nickname" type="text" />
-      </label>
+      <h2>회원가입</h2>
       <label>
         <span>Email</span>
         <input id="signUp_id" type="email" />
       </label>
       <label>
+        <span>Nickname</span>
+        <input id="nickname" type="text" />
+      </label>
+      <label>
         <span>Password</span>
         <input id="signUp_password" type="password" />
+      </label>
+      <label>
+        <span>companyRegisterNumb</span>
+        <input id="companyRegisterNumb" type="text" />
       </label>
       <label>
         <span>admminToken</span>
@@ -79,7 +86,8 @@ function signup(){
   const dataObj = {
     "userId": $('#signUp_id').val(),
     "password": $('#signUp_password').val(),
-    "nickname": $('#nickname').val()
+    "nickname": $('#nickname').val(),
+    "companyRegisterNumb" : $('#companyRegisterNumb').val()
   };
   if ($('#adminToken').val() !== '') {
     dataObj.adminToken = $('#adminToken').val();
