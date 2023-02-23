@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Volunteering &mdash; Colorlib e-Commerce Template</title>
+    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -37,7 +37,7 @@
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.html" class="js-logo-clone">Volunteering</a>
+                <a href="index.html" class="js-logo-clone">VOLUNTEERING</a>
               </div>
             </div>
 
@@ -63,8 +63,8 @@
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="has-children active">
-              <a href="mypage.html">MyPage</a>
+            <li class="has-children">
+              <a href="index.html">Home</a>
               <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                 <li><a href="#">Menu Two</a></li>
@@ -73,21 +73,21 @@
                   <a href="#">Sub Menu</a>
                   <ul class="dropdown">
                     <li><a href="#">Menu One</a></li>
-
+                    <li><a href="#">Menu Two</a></li>
+                    <li><a href="#">Menu Three</a></li>
                   </ul>
                 </li>
               </ul>
             </li>
             <li class="has-children">
-              <a href="volunteerWorkPost.html">봉사활동</a>
+              <a href="about.html">봉사활동</a>
               <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu THree</a></li>
+                <li><a href="volunteerWorkPost_menu1.html">동물 보호 센터</a></li>
+                <li><a href="volunteerWorkPost_menu2.html">기업 / 단체 봉사</a></li>
+                <li><a href="volunteerWorkPost_menu3.html">기타</a></li>
               </ul>
             </li>
-            <li><a href="challenge.html">챌린지</a></li>
-            <li><a href="challenge-participate.html">챌린지 인증하기</a></li>
+            <li class="active"><a href="shop.html">챌린지</a></li>
             <li><a href="notice.html">공지사항</a></li>
             <li><a href="contact.html">고객지원</a></li>
           </ul>
@@ -98,7 +98,7 @@
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">챌린지</strong></div>
+          <div class="col-md-12 mb-0"><a href="index.html">MyPage</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">나의 봉사활동 참여 목록</strong></div>
         </div>
       </div>
     </div>
@@ -111,16 +111,29 @@
 
             <div class="row">
               <div class="col-md-12 mb-5">
-                <div class="float-md-left mb-4"><h2 class="text-black h5">전체보기</h2></div>
+                <div class="float-md-left mb-4"><h2 class="text-black h5">동물보호 센터</h2></div>
                 <div class="d-flex">
+                  <div class="dropdown mr-1 ml-md-auto">
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuReference" data-toggle="dropdown">Reference</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                      <a class="dropdown-item" href="#">최신순, low to high</a>
+                      <a class="dropdown-item" href="#">오래된 순, high to low</a>
+
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            
-              <div class="row mb-5" id="challengeList" >                                    
+            <div class="row mb-5"  id="card_box">
+
+
+    
+
+
               </div>
-            
-            
+            </div>
             <div class="row" data-aos="fade-up">
               <div class="col-md-12 text-center">
                 <div class="site-block-27">
@@ -137,12 +150,11 @@
               </div>
             </div>
           </div>
-
-          
         </div>
-      </div>        
+
+        
+      </div>
     </div>
-  </div>
 
     <footer class="site-footer border-top">
       <div class="container">
@@ -176,7 +188,7 @@
               </div>
             </div>
           </div>
-          
+        
           <div class="col-md-6 col-lg-3">
             <div class="block-5 mb-5">
               <h3 class="footer-heading mb-4">Contact Info</h3>
@@ -222,52 +234,55 @@
 
   <script src="js/main.js"></script>
 
-   <!-- 전체 조회  -->
-    <script>
-      $(window.document).ready(function(){
-        challengeList();
-      })
-
-      function challengeList() {
-        const settings = {
-          "url": "http://localhost:8080/challenges",
-          "method": "GET",
-          "timeout": 0,
-          "headers": {
-            "Authorization": localStorage.getItem('accessToken')
-          },
-};
-
-$.ajax(settings).done(function (response) {
-  const obj = response['data']; 
-  for(let i=0; i<obj.length; i++){
-    const e = obj[i]; // [i] 배열을 순서대로 불러오는 것 
-    const image = e['image'];
-    const title = e['title'];
-    const content = e['content'];
-    const id = e['challengeId'];
-    const temp_html =  `
-              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+  <!-- 나의 봉사활동 리스트 조회 -->
+  <script>
+    $(window.document).ready(function() {
+      myVolunteerWorkList();
+      
+    })
+    function myVolunteerWorkList() {
+      $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/enrollments",
+        data: {},
+        headers: {
+          "Authorization": localStorage.getItem('accessToken')
+        },
+        success: function (response) {
+          const arr = (response['data'])
+          for (let i = 0; i < arr.length; i++) {
+            const obj = arr[i];
+            const id = obj["postId"]
+            const title = obj["title"]
+            const area = obj["area"]
+            const postStatus = obj["postStatus"] === "TRUE"
+            const likeNum = obj["likeNum"]
+            const tempHtml = `
+            <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
-                    <a onclick="window.location.href='/challenge-single.html?id=${id}'"><img src="https://velog.velcdn.com/images/she9742/post/411f77e0-9ed1-408f-a28b-9b61bb4dc299/image.jpg"alt="Image placeholder" class="img-fluid"></a>
+                    <a onclick="window.location.href='/volunteerWorkPost-single.html?id=${id}'"><img src="https://vrthumb.imagetoday.co.kr/2020/05/06/tid353t000069.jpg" alt="Image placeholder" class="img-fluid"></a>
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a onclick="window.location.href='/challenge-single.html?id=${id}'">${title}</a></h3>
-                    <p class="mb-0">${content}</p>
+                    <h3><a onclick="window.location.href='/volunteerWorkPost-single.html?id=${id}'">${title}</a></h3>
+                    <p class="mb-0">${area}</p>
+                    <p class="text-primary font-weight-bold">${postStatus ? "모집 중" : "참여 완료"}</p>
                   </div>
                 </div>
-              `
-              
-    $('#challengeList').append(temp_html)
-  }
- 
-});
-      }
+              </div>
+            ` 
+            $("#card_box").append(tempHtml)
+          
+            
 
-      
-    </script>
-   }
+
+          }
+        },
+      })
+    }
+
+  </script>
 
   </body>
+
 </html>
