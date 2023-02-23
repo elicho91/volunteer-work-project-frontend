@@ -140,8 +140,7 @@
 
             </div>
             <!-- <p><a type="button" class="buy-now btn btn-sm btn-primary" onclick="enrollment()">참여 신청</a></p>    -->
-              <p>
-                <button class="button" data-for="js_basic-popup">참여 신청</button>               
+              <button class="button" data-for="js_basic-popup">참여 신청</button>               
               <div class="popup js_basic-popup">
                 <div class="popup__background"></div>
                 <div class="popup__content">
@@ -153,7 +152,33 @@
                   <input type="text" id="phoneNum" name="phoneNum">
                   <p>
                     <button class="button" data-for="js_basic-popup" onclick="enrollment()">신청하기</button>
+                    <button class="button" data-for="js_basic-popup">닫기</button>
+                </div>
+              </div>
+
+              <button class="button" data-for="js_basic-popup2" onclick="getEnrollmentList()">참여 신청 조회</button>               
+              <div class="popup js_basic-popup2">
+                <div class="popup__background"></div>
+                <div class="popup__content">
+                  <p>
+                    <h1 class="con">신청 조회</h1>
+                    <section class="article-list table-common con">
+                        <table id="application_list">
+                            <thead>
+                                <tr>
+                                    <th> userId </th>
+                                    <th> username </th>
+                                    <th> phoneNum </th>
+                                    <th> status </th>
+                                </tr>
+                            </thead>
+
+                        </table>
+                    </section>
+
+
                   </p>
+                    <button class="button" data-for="js_basic-popup2">닫기</button>
                 </div>
               </div>
 
@@ -467,6 +492,147 @@
       }
     }
     </style>
+    <style>
+      html {
+	font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 노말라이즈 */
+body, ul, li, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+a:link {
+	color: lightblue;
+}
+
+/* 라이브러리 */
+.con {
+	margin: 0 auto;
+}
+
+.img-box>img {
+	width: 100%;
+	display: block;
+}
+
+.row::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.cell {
+	float: left;
+	box-sizing: border-box;
+}
+
+.cell-right {
+	float: right;
+	box-sizing: border-box;
+}
+
+.margin-0-auto {
+	margin: 0 auto;
+}
+
+.block {
+	display: block;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.text-align-center {
+	text-align: center;
+}
+
+.line-height-0-ch-only {
+	line-height: 0;
+}
+
+.line-height-0-ch-only>* {
+	line-height: normal;
+}
+
+.relative {
+	position: relative;
+}
+
+.absolute-left {
+	position: absolute;
+	left: 0;
+}
+
+.absolute-right {
+	position: absolute;
+	right: 0;
+}
+
+.absolute-middle {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+/* 커스텀 */
+/* 반응형 레이아웃 */
+.con {
+	max-width: 950px;
+}
+
+.con-min-width {
+	min-width: 320px;
+}
+
+.top-menu a {
+	text-decoration: none;
+	color: gray;
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+html, body { 
+	overflow-x: hidden;
+}
+
+.table-common>table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.table-common .btn-box {
+	text-align:center;
+}
+
+.table-common>table th, .table-common>table td {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+.article-list table {
+    border:none;   
+    border-top:2px solid lightgray;
+    border-bottom:2px solid lightgray;
+}
+
+.article-list > table th, .article-list > table td {
+    border:none;
+}
+
+.article-list > table td {
+    border-bottom:1px solid lightgray;
+}
+
+.article-list > table thead {
+    border-bottom:2px solid lightgray;
+    background-color:#F5F5F5;
+}
+
+    </style>
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -479,15 +645,16 @@
   <script src="js/main.js"></script>
   <script>
     const addButtonTrigger = (el) => {
-	el.addEventListener('click', () => {
-		const popupEl = document.querySelector(`.${el.dataset.for}`);
-		popupEl.classList.toggle('popup--visible');
-	});
-};
+      el.addEventListener('click', () => {
+        const popupEl = document.querySelector(`.${el.dataset.for}`);
+        popupEl.classList.toggle('popup--visible');
+      });
+    };
 
-Array.from(document.querySelectorAll('button[data-for]'))
-           .forEach(addButtonTrigger); 
+    Array.from(document.querySelectorAll('button[data-for]'))
+              .forEach(addButtonTrigger); 
   </script>
+
   <!-- 선택 조회 -->
   <script>
     $(window.document).ready(function() {
@@ -552,26 +719,68 @@ Array.from(document.querySelectorAll('button[data-for]'))
   <script>
     function enrollment() {
       const id = document.location.href.split("=")[1];
-      const settings = {
-        "url": "http://localhost:8080/volunteerWorkPosts/" + id + "/enrollments",
-        "method": "POST",
-        "timeout": 0,
-        "headers": {
+      $.ajax({
+        url: "http://localhost:8080/volunteerWorkPosts/" + id + "/enrollments",
+        method: "POST",
+        timeout: 0,
+        headers: {
           "Authorization": localStorage.getItem("accessToken"),
           "Content-Type": "application/json"
         },
-        "data": JSON.stringify({
-          "username": $("#username").val(),
-          "phoneNum": $("#phoneNum").val()
+        data: JSON.stringify({
+          username: $("#username").val(),
+          phoneNum: $("#phoneNum").val()
         }),
-      };
+        success: function (response) {
+          alert("신청하였습니다.")
+        },
+        error: function (error) {
+         alert("이미 신청하였습니다.")
 
-      $.ajax(settings).done(function (response) {
-        alert("신청하였습니다.")
-      });
-      $.ajax(settings).fail(function (response) {
-        alert("이미 신청한 게시글입니다.")
-      });
+        }
+      })
+    }
+  </script>
+
+  <!-- 참여조회 -->
+  <script>
+        $(window.document).ready(function() {
+      getEnrollmentList();
+    })
+    function getEnrollmentList() {
+      const id = document.location.href.split("=")[1];
+      $.ajax ({
+        type: "GET",
+        url:"http://localhost:8080/volunteerWorkPosts/" + id + "/enrollments",
+        data: {},
+        headers: {
+          "Authorization" : localStorage.getItem('accessToken')
+        },
+        success: function (response) {
+          const arr = (response['data'])
+           for (let i=0; i< arr.length; i++)
+           {
+            const obj = arr[i];
+            const userId = obj["userId"]
+            const username = obj["username"]
+            const phoneNum = obj["phoneNum"]
+            const enrollmentStatus = obj["enrollmentStatus"] === "TRUE"
+            const tempHtml = `
+                            <tbody>
+                                  <tr>
+                                      <td>${userId}</td>
+                                      <td>${username}</td>
+                                      <td>${phoneNum}</td>
+                                      <td>${enrollmentStatus ? "대기 중":"신청 완료"}</td>
+                                  </tr>
+                              </tbody>
+                                    `
+            $("#application_list").append(tempHtml)
+
+          }
+         
+        },
+      })
     }
   </script>
     
