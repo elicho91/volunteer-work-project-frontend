@@ -41,10 +41,11 @@
               </div>
             </div>
 
-            <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+            <div class="col-6 col-md-12 order-3 order-md-3 text-right">
               <div class="site-top-icons">
                 <ul>
-                  <li><a href="#"><span class="icon icon-person"></span></a></li>
+                  <li><a><span id="loginUser"></span></a></li>
+                  <li><a href="/login.html"><span class="icon icon-person"></span></a></li>
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
                     <a href="cart.html" class="site-cart">
@@ -52,7 +53,9 @@
                       <span class="count">2</span>
                     </a>
                   </li> 
+                  <li><a href="/mypage.html"><span>MyPage</span></a></li>
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                  <button type="button" class="submit" onclick="signout()">로그아웃</button>
                 </ul>
               </div> 
             </div>

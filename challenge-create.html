@@ -186,15 +186,23 @@
               </div>
             </div>
 
-            <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+            <div class="col-6 col-md-12 order-3 order-md-3 text-right">
               <div class="site-top-icons">
                 <ul>
-                  <li><a href="#"><span class="icon icon-person"></span></a></li>
+                  <li><a><span id="loginUser"></span></a></li>
+                  <li><a href="/login.html"><span class="icon icon-person"></span></a></li>
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
-                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
-                        class="icon-menu"></span></a></li>
+                  <li>
+                    <a href="cart.html" class="site-cart">
+                      <span class="icon icon-shopping_cart"></span>
+                      <span class="count">2</span>
+                    </a>
+                  </li> 
+                  <li><a href="/mypage.html"><span>MyPage</span></a></li>
+                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                  <button type="button" class="submit" onclick="signout()">로그아웃</button>
                 </ul>
-              </div>
+              </div> 
             </div>
 
           </div>
@@ -203,30 +211,16 @@
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="has-children active">
-              <a href="index.html">Home</a>
-              <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-                <li class="has-children">
-                  <a href="#">Sub Menu</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Menu One</a></li>
-
-                  </ul>
-                </li>
-              </ul>
             </li>
             <li class="has-children">
-              <a href="volunteerWorkPost.html">봉사활동</a>
+              <a href="about.html">봉사활동</a>
               <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu THree</a></li>
+                <li><a href="volunteerWorkPost_menu1.html">동물보호 센터</a></li>
+                <li><a href="volunteerWorkPost_menu2.html">기업 / 단체 봉사</a></li>
+                <li><a href="volunteerWorkPost_menu3.html">기타</a></li>
               </ul>
             </li>
-            <li><a href="challenge.html">챌린지</a></li>
+            <li class="active"><a href="challenge.html">챌린지</a></li>
             <li><a href="challenge-participate.html">챌린지 인증</a></li>
             <li><a href="notice.html">공지사항</a></li>
             <li><a href="contact.html">고객지원</a></li>
@@ -238,7 +232,7 @@
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
+          <div class="col-md-12 mb-0"><a href="index.html">챌린지</a> <span class="mx-2 mb-0">/</span> <strong
               class="text-black">챌린지 등록하기</strong></div>
         </div>
       </div>
