@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+<head>
+  <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
 
-    <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/aos.css">
 
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/comment.css">
 
-  </head>
-  <body>
-  
+</head>
+
+<body>
+
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
@@ -51,15 +54,16 @@
                       <span class="icon icon-shopping_cart"></span>
                       <span class="count">2</span>
                     </a>
-                  </li> 
-                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                  </li>
+                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
+                        class="icon-menu"></span></a></li>
                 </ul>
-              </div> 
+              </div>
             </div>
 
           </div>
         </div>
-      </div> 
+      </div>
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
@@ -98,10 +102,11 @@
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">title</strong></div>
+          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
+              class="text-black">title</strong></div>
         </div>
       </div>
-    </div>  
+    </div>
 
     <div class="site-section">
       <div class="container">
@@ -110,11 +115,19 @@
             <img src="images/cloth_1.jpg" alt="Image" class="img-fluid">
           </div>
           <div class="col-md-6">
-            <div id = "title"><h2 class="text-black" ></h2></div>
-            <div id = "datepicker"><p></p></div>
-            <div id = "spinner"><p></p></div>
-            <div><p class="mb-4" id = "content"><strong></strong></p></div>
-            <div id = "area">
+            <div id="title">
+              <h2 class="text-black"></h2>
+            </div>
+            <div id="datepicker">
+              <p></p>
+            </div>
+            <div id="spinner">
+              <p></p>
+            </div>
+            <div>
+              <p class="mb-4" id="content"><strong></strong></p>
+            </div>
+            <div id="area">
               <p><strong class="text-primary h4"></strong></p>
             </div>
             <div id = "date">
@@ -123,20 +136,22 @@
             <div id = "centerName">
               <p><strong class="text-primary h4"></strong></p>
             </div>
-            <div id = "collectNum">
+            <div id="collectNum">
               <p><strong class="text-primary h4"></strong></p>
             </div>
 
             <div class="mb-5">
               <div class="input-group mb-3" style="max-width: 120px;">
-              <div class="input-group-prepend">
-                <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                </div>
+                <input type="text" class="form-control text-center" value="1" placeholder=""
+                  aria-label="Example text with button addon" aria-describedby="button-addon1">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                </div>
               </div>
-              <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-              <div class="input-group-append">
-                <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-              </div>
-            </div>
+
 
             </div>
             <!-- <p><a type="button" class="buy-now btn btn-sm btn-primary" onclick="enrollment()">참여 신청</a></p>    -->
@@ -191,7 +206,42 @@
       </div>
     </div>
 
-  
+    <div id="comment-box">
+      <div class="area-write">
+        <textarea class="field" placeholder="댓글을 입력하세요." name="comments" id="comments" cols="80" rows="1"></textarea>
+      </div>
+      <button type="button" class="btn btn-success btn-sm" onclick="writeComment()">작성</button>
+    </div>
+
+
+    <!-- Edit Modal HTML  수정하기  -->
+    <div id="editEmployeeModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <h4 class="modal-title">Edit Comment</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>수정할 내용을 입력하세요.</label>
+                <input type="text" class="form-control" required id="patch_comments">
+              </div>
+
+
+            </div>
+            <div class="modal-footer">
+              <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+              <input type="button" class="btn btn-info" value="Save" onclick="updateComment()">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
     <footer class="site-footer border-top">
       <div class="container">
         <div class="row">
@@ -229,7 +279,7 @@
             <a href="#" class="block-6">
               <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
               <h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
-              <p>Promo from  nuary 15 &mdash; 25, 2019</p>
+              <p>Promo from nuary 15 &mdash; 25, 2019</p>
             </a>
           </div>
           <div class="col-md-6 col-lg-3">
@@ -250,20 +300,14 @@
                   <input type="submit" class="btn btn-sm btn-primary" value="Send">
                 </div>
               </form>
-            </div>  
+            </div>
           </div>
         </div>
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-          </div>
-          
-        </div>
+
       </div>
+
+
+
     </footer>
   </div>
   <style>
@@ -634,13 +678,13 @@ html, body {
 
     </style>
 
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
   <script>
@@ -655,22 +699,26 @@ html, body {
               .forEach(addButtonTrigger); 
   </script>
 
-  <!-- 선택 조회 -->
-  <script>
-    $(window.document).ready(function() {
-      workPost();
-    })
-    function workPost() {
-      const id = document.location.href.split("=")[1];
-      $.ajax ({
-        type: "GET",
-        url:"http://localhost:8080/volunteerWorkPosts/" + id ,
-        data: {},
-        headers: {
-          "Authorization" : localStorage.getItem('accessToken')
-        },
-        success: function (response) {
-          const e = (response['data'])
+    <!-- 선택 조회 -->
+    <script>
+      $(window.document).ready(function () {
+        workPost();
+      })
+
+      $(window.document).ready(function () {
+        getMessages();
+      })
+      function workPost() {
+        const id = document.location.href.split("=")[1];
+        $.ajax({
+          type: "GET",
+          url: "http://localhost:8080/volunteerWorkPosts/" + id,
+          data: {},
+          headers: {
+            "Authorization": localStorage.getItem('accessToken')
+          },
+          success: function (response) {
+            const e = (response['data'])
             $('#title').text(e['title'])
             $('#content').text(e['content'])
             $('#area').text(e['area'])
@@ -682,108 +730,267 @@ html, body {
       })
     }
 
-  </script>
+    </script>
 
-  <!-- 선택 수정 -->
-  <script>
-    function updatePost() {
-      const id = document.location.href.split("=")[1];
-      window.location.href='volunteerWorkPostCreate.html?id=' + id
-    }
-  </script>
+    <!-- 선택 수정 -->
+    <script>
+      function updatePost() {
+        const id = document.location.href.split("=")[1];
+        window.location.href = 'volunteerWorkPostCreate.html?id=' + id
+      }
+    </script>
 
-  <!-- 선택 삭제 -->
-  <script>
-    $(window.document).ready(function() {
-    })
-    function deletePost() {
-      const id = document.location.href.split("=")[1];
-      $.ajax({
-        type: "DELETE",
-        url: "http://localhost:8080/volunteerWorkPosts/" + id,
-        data: {},
-        headers: {
-          Authorization : localStorage.getItem("accessToken")
-        },
-        success: function(response) {
-          alert("삭제되었습니다.")
-          window.location.href = "/volunteerWorkPost_menu1.html"
-        },
-        error: function(errorMessage) {
-          alert(errorMessage["responseJSON"]["message"]) 
-        }
+    <!-- 선택 삭제 -->
+    <script>
+      $(window.document).ready(function () {
       })
-    }
-  </script>
+      function deletePost() {
+        const id = document.location.href.split("=")[1];
+        $.ajax({
+          type: "DELETE",
+          url: "http://localhost:8080/volunteerWorkPosts/" + id,
+          data: {},
+          headers: {
+            Authorization: localStorage.getItem("accessToken")
+          },
+          success: function (response) {
+            alert("삭제되었습니다.")
+            window.location.href = "/volunteerWorkPost_menu1.html"
+          },
+          error: function (errorMessage) {
+            alert(errorMessage["responseJSON"]["message"])
+          }
+        })
+      }
+    </script>
 
-  <!-- 참여 신청 -->
-  <script>
-    function enrollment() {
-      const id = document.location.href.split("=")[1];
-      $.ajax({
-        url: "http://localhost:8080/volunteerWorkPosts/" + id + "/enrollments",
-        method: "POST",
-        timeout: 0,
-        headers: {
-          "Authorization": localStorage.getItem("accessToken"),
-          "Content-Type": "application/json"
-        },
-        data: JSON.stringify({
-          username: $("#username").val(),
-          phoneNum: $("#phoneNum").val()
-        }),
-        success: function (response) {
-          alert("신청하였습니다.")
-        },
-        error: function (error) {
-         alert("이미 신청하였습니다.")
+<!-- 참여 신청 -->
+<script>
+  function enrollment() {
+    const id = document.location.href.split("=")[1];
+    $.ajax({
+      url: "http://localhost:8080/volunteerWorkPosts/" + id + "/enrollments",
+      method: "POST",
+      timeout: 0,
+      headers: {
+        "Authorization": localStorage.getItem("accessToken"),
+        "Content-Type": "application/json"
+      },
+      data: JSON.stringify({
+        username: $("#username").val(),
+        phoneNum: $("#phoneNum").val()
+      }),
+      success: function (response) {
+        alert("신청하였습니다.")
+      },
+      error: function (error) {
+       alert("이미 신청하였습니다.")
+
+      }
+    })
+  }
+</script>
+
+<!-- 참여조회 -->
+<script>
+  $(window.document).ready(function() {
+    getEnrollmentList();
+  })
+  function getEnrollmentList() {
+    const id = document.location.href.split("=")[1];
+    $.ajax ({
+      type: "GET",
+      url:"http://localhost:8080/volunteerWorkPosts/" + id + "/enrollments",
+      data: {},
+      headers: {
+        "Authorization" : localStorage.getItem('accessToken')
+      },
+      success: function (response) {
+        const arr = (response['data'])
+         for (let i=0; i< arr.length; i++)
+         {
+          const obj = arr[i];
+          const userId = obj["userId"]
+          const username = obj["username"]
+          const phoneNum = obj["phoneNum"]
+          const enrollmentStatus = obj["enrollmentStatus"] === "TRUE"
+          const tempHtml = `
+            <tbody>
+                <tr>
+                  <td>${userId}</td>
+                  <td>${username}</td>
+                  <td>${phoneNum}</td>
+                  <td>${enrollmentStatus ? "대기 중":"신청 완료"}</td>
+                </tr>
+            </tbody>
+            `
+          $("#application_list").append(tempHtml)
 
         }
-      })
-    }
+       
+      },
+    })
+  }
   </script>
 
-  <!-- 참여조회 -->
+
   <script>
-    $(window.document).ready(function() {
-      getEnrollmentList();
-    })
-    function getEnrollmentList() {
-      const id = document.location.href.split("=")[1];
-      $.ajax ({
-        type: "GET",
-        url:"http://localhost:8080/volunteerWorkPosts/" + id + "/enrollments",
-        data: {},
-        headers: {
-          "Authorization" : localStorage.getItem('accessToken')
-        },
-        success: function (response) {
-          const arr = (response['data'])
-           for (let i=0; i< arr.length; i++)
-           {
-            const obj = arr[i];
-            const userId = obj["userId"]
-            const username = obj["username"]
-            const phoneNum = obj["phoneNum"]
-            const enrollmentStatus = obj["enrollmentStatus"] === "TRUE"
-            const tempHtml = `
-              <tbody>
-                  <tr>
-                    <td>${userId}</td>
-                    <td>${username}</td>
-                    <td>${phoneNum}</td>
-                    <td>${enrollmentStatus ? "대기 중":"신청 완료"}</td>
-                  </tr>
-              </tbody>
-              `
-            $("#application_list").append(tempHtml)
+      //댓글 조회
+      function getMessages() {
+        // url에서 해당 postId값을 가져옵니다.
+        const id = document.location.href.split("=")[1];
+        const settings = {
+          "url": "http://localhost:8080/volunteerWorkPosts/" + id + "/comments",
+          "method": "GET",
+          "timeout": 0,
+          "headers": {
+            "Authorization": localStorage.getItem('accessToken'),
+          },
+        };
+        console.log(id);
+
+        $.ajax(settings).done(function (response) {
+          console.log(response['data'])
+          const obj = response['data'];
+          for (let i = 0; i < obj.length; i++) {
+            const e = obj[i];
+            const commentId = e['commentId'];
+            const comments = e['comments'];
+            const nickname = e['nickname'];
+            const postId = e['postId'];
+
+            console.log(postId)
+
+            const comment_date = new Date(e["modifiedAt"])
+
+            const year = comment_date.getFullYear();
+            const month = comment_date.getMonth();
+            const date = comment_date.getDate();
+            const hour = comment_date.getHours();
+            const min = comment_date.getMinutes();
+            console.log(response);
+
+
+            const temp_html = `
+            <div class="row d-flex justify-content-center mt-100 mb-100">
+        <div class="col-lg-6">
+          <div class="card">
+            
+            <div class="comment-widgets">
+              <!-- Comment Row -->
+              <div class="d-flex flex-row comment-row m-t-0">
+
+                <div class="comment-text w-100">
+                  <h6 class="font-medium">${nickname}</h6> <span class="m-b-15 d-block">${comments}</span>
+                  <div class="comment-footer"> <span class="text-muted float-right">${year}/${month}/${date}/${hour}:${min}</span>
+                    <button class="btn btn-cyan btn-sm edit" id2=${commentId} data-toggle="modal" data-target="#editEmployeeModal"><i data-toggle="tooltip" title="Edit">수정</i></button>
+                    <button id="deleteComment" type="button" data-id2= ${commentId}  class="btn btn-danger btn-sm">삭제</button>
+                  </div>
+                </div>
+              </div> <!-- Comment Row -->
+            </div> <!-- Card -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+                          `;
+
+            $('#comment-box').append(temp_html);
 
           }
-         
-        },
-      })
-    }
-  </script>
+        });
+      };
+
+
+
+
+
+      // 댓글 작성
+      function writeComment() {
+        // url에서 해당 postId값을 가져옵니다.
+        const id = document.location.href.split("=")[1];
+        const settings = {
+          "url": "http://localhost:8080/volunteerWorkPosts/" + id + "/comments",
+          "method": "POST",
+          "timeout": 0,
+          "headers": {
+            "Authorization": localStorage.getItem('accessToken'),
+            "Content-Type": "application/json"
+          },
+          "data": JSON.stringify({
+            "comments": $('#comments').val()
+          }),
+        };
+
+        $.ajax(settings).done(function (response) {
+          alert('댓글 작성 완료');
+          console.log(response);
+          window.location.reload();
+        });
+      }
+
+      var id2;
+
+      $(document).on('mousedown', '.edit', function () {
+        id2 = $(this).attr('id2');
+      });
+      console.log(id2);
+
+      //  댓글을 수정합니다.
+      function updateComment() {
+        const id = document.location.href.split("=")[1];
+
+        const settings = {
+          "url": "http://localhost:8080/volunteerWorkPosts/" + id + "/comments/" + id2,
+          "method": "PATCH",
+          "timeout": 0,
+          "headers": {
+            "Authorization": localStorage.getItem('accessToken'),
+            "Content-Type": "application/json"
+          },
+          "data": JSON.stringify({
+            "comments": $('#patch_comments').val()
+          }),
+        };
+
+        $.ajax(settings).done(function (response) {
+          alert('댓글 수정 완료');
+          console.log(response);
+          window.location.reload();
+        });
+      }
+
+      //댓글 삭제      
+
+      $(document).on('click', '#deleteComment', function (e) {
+        const id = document.location.href.split("=")[1];
+        var id2=$(e.target).data('id2');
+
+        const settings = {
+          "url": "http://localhost:8080/volunteerWorkPosts/" + id + "/comments/" + id2,
+          "method": "DELETE",
+          "timeout": 0,
+          "headers": {
+            "Authorization": localStorage.getItem('accessToken'),
+          },
+        };
+
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+          alert('댓글 삭제 완료');
+          window.location.reload();
+        });
+      });
+
+     
+
+
+
+
+    </script>
+
+</body>
     
   </body>
 
