@@ -86,9 +86,11 @@ function signup(){
   const dataObj = {
     "userId": $('#signUp_id').val(),
     "password": $('#signUp_password').val(),
-    "nickname": $('#nickname').val(),
-    "companyRegisterNumb" : $('#companyRegisterNumb').val()
+    "nickname": $('#nickname').val()
   };
+  if ($('#companyRegisterNumb').val() !== '') {
+    dataObj.companyRegisterNumb = $('#companyRegisterNumb').val();
+  }
   if ($('#adminToken').val() !== '') {
     dataObj.adminToken = $('#adminToken').val();
   }
