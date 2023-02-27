@@ -143,7 +143,7 @@
                 </div>       
                 <div class="form-group row">
                   <div class="col-md-6">
-                    <label for="c_fname" class="text-black"><span class="text-danger"><p>모집 날짜*: <input type="datetime-local" id="LocalDateTime"></p></span></label>
+                    <label for="c_fname" class="text-black"><span class="text-danger"><p>모집 날짜*: <input type="datetime-local" id="LocalDateTime" name="endTime"></p></span></label>
                   </div>
                 </div>  
                 <div class="form-group row">
@@ -376,7 +376,7 @@
         $('#title').attr('value', e['title'])
         $('#content').text(e['content'])
         $('area').text(e['area'])
-        $('#date').date(e['date'])
+        $('#LocalDateTime').date(e['endTime'])
         $('centerName').text(e['centerName'])
       },
     })
@@ -399,7 +399,7 @@
           "content": $('#content').val(),
           "postStatus": $('#postStatus').val(),
           "area": $('#area').val(),
-          "date": $('#date').val(),
+          "endTime": $('#LocalDateTime').val(),
           "spinner": $('#spinner').val(),
           "centerName": $('#centerName').val(),
         }),
