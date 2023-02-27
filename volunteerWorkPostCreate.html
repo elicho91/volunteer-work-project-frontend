@@ -312,6 +312,11 @@
 
   <!-- 등록 / 수정 변경 -->
   <script>
+    $(window.document).ready(function (){
+      getWorkPost();
+      document.location.href.includes("id") && getWorkPost();
+    })
+
     function typeCheck() {
       return document.location.href.includes("id") ? updatePost() : createPost()
     }
@@ -347,6 +352,29 @@
   </script>
 
   <!-- 게시글 수정하기 -->
+  <script>
+    function getWorkPost(){
+      const id = document.location.href.split("=")[1];
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:8080/volunteerWorkPosts/" + id,
+      data: {},
+      headers: {
+        "Authorization" : localStorage.getItem('accessToken')
+      },
+      success: function (response) {
+        const e = (response['data'])
+        console.log(e)
+        $('#title').attr('value', e['title'])
+        $('#content').text(e['content'])
+        $('area').text(e['area'])
+        $('#date').date(e['date'])
+        $('centerName').text(e['centerName'])
+      },
+    })
+    }
+  </script>
+
   <script>
     function updatePost() {
       const id = document.location.href.split("=")[1];

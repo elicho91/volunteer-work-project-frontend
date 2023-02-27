@@ -151,7 +151,7 @@
                   </p>
                   <input type="text" id="username" name="username">
                   <p>핸드폰 번호</p>
-                  <input type="text" id="phoneNum" name="phoneNum">
+                  <input type="text" id="phoneNumber" name="phoneNumber">
                   <p>
                     <button class="button" data-for="js_basic-popup" onclick="enrollment()">신청하기</button>
                     <button class="button" data-for="js_basic-popup">닫기</button>
@@ -170,7 +170,7 @@
                                 <tr>
                                     <th> userId </th>
                                     <th> username </th>
-                                    <th> phoneNum </th>
+                                    <th> phoneNumber </th>
                                     <th> status </th>
                                 </tr>
                             </thead>
@@ -765,13 +765,13 @@ html, body {
       },
       data: JSON.stringify({
         username: $("#username").val(),
-        phoneNum: $("#phoneNum").val()
+        phoneNumber: $("#phoneNumber").val()
       }),
       success: function (response) {
         alert("신청하였습니다.")
       },
       error: function (error) {
-       alert("이미 신청하였습니다.")
+       alert(error.responseJSON.message)
 
       }
     })
@@ -799,14 +799,14 @@ html, body {
           const obj = arr[i];
           const userId = obj["userId"]
           const username = obj["username"]
-          const phoneNum = obj["phoneNum"]
+          const phoneNumber = obj["phoneNumber"]
           const enrollmentStatus = obj["enrollmentStatus"] === "TRUE"
           const tempHtml = `
             <tbody>
                 <tr>
                   <td>${userId}</td>
                   <td>${username}</td>
-                  <td>${phoneNum}</td>
+                  <td>${phoneNumber}</td>
                   <td>${enrollmentStatus ? "대기 중":"신청 완료"}</td>
                 </tr>
             </tbody>
