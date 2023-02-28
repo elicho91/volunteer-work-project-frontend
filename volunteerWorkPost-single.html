@@ -147,6 +147,8 @@
             <div class="popup js_basic-popup">
               <div class="popup__background"></div>
               <div class="popup__content">
+                <p>유저 ID</p>
+                <input type="text" id="userId" name="userId" readonly>
                 <p>
                   이름
                 </p>
@@ -797,6 +799,30 @@
     }
   </script>
 
+  <!-- 유저아이디 가져오기 -->
+  <script>
+    $(window.document).ready(function () {
+      userprofile();
+      document.location.href.includes("id") && enrollment();
+    })
+    function userprofile() {
+      $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/profiles",
+        data: {},
+        headers: {
+          "Authorization": localStorage.getItem('accessToken')
+        },
+        success: function (response) {
+          const user = response['data']['userId']
+          $('#userId').attr('value', user)
+        },
+      })
+    }
+
+
+  </script>
+
   <!-- 참여 신청 -->
   <script>
     function enrollment() {
@@ -810,6 +836,7 @@
           "Content-Type": "application/json"
         },
         data: JSON.stringify({
+          userId: $('#userId').val(),
           username: $("#username").val(),
           phoneNumber: $("#phoneNumber").val()
         }),
