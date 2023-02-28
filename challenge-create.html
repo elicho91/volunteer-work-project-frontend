@@ -371,7 +371,7 @@
           "Content-Type": "application/json"
         },
         "data": JSON.stringify({
-          "userId": $('#userId').val(),
+          "userId": $('#userId').text(),
           "title": $('#title').val(),
           "image": $('#image').val(),
           "content": $('#content').val()
@@ -412,7 +412,6 @@
         },
         success: function (response) {
           const e = (response['data'])
-          console.log(e)
           $('#title').attr("value", e['title'])
           $('#content').text(e['content'])
           $('image').text(e['image'])

@@ -166,7 +166,6 @@
             right: 0;
         }
     </style>
-
     <div class="site-wrap">
         <header class="site-navbar" role="banner">
             <div class="site-navbar-top">
@@ -186,14 +185,23 @@
                             </div>
                         </div>
 
-                        <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+                        <div class="col-6 col-md-12 order-3 order-md-3 text-right">
                             <div class="site-top-icons">
                                 <ul>
-                                    <li><a href="#"><span class="icon icon-person"></span></a></li>
+                                    <li><a><span id="loginUser"></span></a></li>
+                                    <li><a href="/login.html"><span class="icon icon-person"></span></a></li>
                                     <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+                                    <li>
+                                        <a href="cart.html" class="site-cart">
+                                            <span class="icon icon-shopping_cart"></span>
+                                            <span class="count">2</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="/mypage.html"><span>MyPage</span></a></li>
                                     <li class="d-inline-block d-md-none ml-md-0"><a href="#"
                                             class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a>
                                     </li>
+                                    <button type="button" class="submit" onclick="signout()">로그아웃</button>
                                 </ul>
                             </div>
                         </div>
@@ -204,27 +212,13 @@
             <nav class="site-navigation text-right text-md-center" role="navigation">
                 <div class="container">
                     <ul class="site-menu js-clone-nav d-none d-md-block">
-                        <li class="has-children active">
-                            <a href="index.html">Home</a>
-                            <ul class="dropdown">
-                                <li><a href="#">Menu One</a></li>
-                                <li><a href="#">Menu Two</a></li>
-                                <li><a href="#">Menu Three</a></li>
-                                <li class="has-children">
-                                    <a href="#">Sub Menu</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#">Menu One</a></li>
-
-                                    </ul>
-                                </li>
-                            </ul>
                         </li>
                         <li class="has-children">
-                            <a href="volunteerWorkPost.html">봉사활동</a>
+                            <a href="about.html">봉사활동</a>
                             <ul class="dropdown">
-                                <li><a href="#">Menu One</a></li>
-                                <li><a href="#">Menu Two</a></li>
-                                <li><a href="#">Menu THree</a></li>
+                                <li><a href="volunteerWorkPost_menu1.html">동물보호 센터</a></li>
+                                <li><a href="volunteerWorkPost_menu2.html">기업 / 단체 봉사</a></li>
+                                <li><a href="volunteerWorkPost_menu3.html">기타</a></li>
                             </ul>
                         </li>
                         <li><a href="challenge.html">챌린지</a></li>
@@ -239,15 +233,15 @@
         <div class="bg-light py-3">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
-                            class="text-black">챌린지 자랑하기</strong></div>
+                    <div class="col-md-12 mb-0"><a href="index.html">챌린지 인증</a> <span class="mx-2 mb-0">/</span> <strong
+                            class="text-black">챌린지 인증 등록하기</strong></div>
                 </div>
             </div>
         </div>
 
         <div class="col-md-7">
 
-            <form id="challenge" method="get" class="put_post">
+            <form id="challenge_auth" method="get" class="put_post">
 
                 <div class="p-3 p-lg-5 border">
                     <div class="form-group row">
@@ -280,7 +274,6 @@
                 </div>
             </form>
         </div>
-
         </section>
         <footer class="site-footer border-top">
             <div class="container">
@@ -363,10 +356,11 @@
         $(window.document).ready(function () {
             userprofile();
             document.location.href.includes("id") && getChallengeAuth();
+
         })
 
         function typeCheck() {
-            return document.location.href.includes("id") ? putChallegeAuth() : postChallengeAuth()
+             document.location.href.includes("id") ? putChallengeAuth() : postChallengeAuth()
         }
 
         function postChallengeAuth() {
@@ -379,7 +373,7 @@
                     "Content-Type": "application/json"
                 },
                 "data": JSON.stringify({
-                    "userId": $('#userId').val(),
+                    "userId": $('#userId').text(),
                     "title": $('#title').val(),
                     "image": $('#image').val(),
                     "content": $('#content').val()
@@ -402,6 +396,7 @@
                 },
                 success: function (response) {
                     const e = (response['data'])
+                    console.log(typeof e['userId'])
                     $('#userId').text(e['userId'])
                 },
             })
@@ -410,23 +405,45 @@
             const id = document.location.href.split("=")[1];
             $.ajax({
                 type: "GET",
-                url: "http://localhost:8080/challenges-auth/" + id,
+                url: "http://localhost:8080/challenge-auth/" + id,
                 data: {},
                 headers: {
                     "Authorization": localStorage.getItem('accessToken')
                 },
                 success: function (response) {
                     const e = (response['data'])
-                    console.log(e)
                     $('#title').attr("value", e['title'])
                     $('#content').text(e['content'])
                     $('image').text(e['image'])
+                    $('#put_btn').attr("value", "수정하기")
                     $('.put_post').attr("id", "")
                 },
             })
         }
 
+        function putChallengeAuth() {
+            const id = document.location.href.split("=")[1];
+            const settings = {
+                "url": "http://localhost:8080/challenge-auth/" + id,
+                "method": "PATCH",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": localStorage.getItem('accessToken'),
+                    "Content-Type": "application/json"
+                },
+                "data": JSON.stringify({
+                    "userId": $('#userId').val(),
+                    "title": $('#title').val(),
+                    "image": $('#image').val(),
+                    "content": $('#content').val()
+                }),
+            };
 
+            $.ajax(settings).done(function (response) {
+                alert('챌린지 인증을 수정하였습니다.')
+                window.location.href = '/challenge-auth.html'
+            });
+        }
 
     </script>
 </body>
