@@ -27,7 +27,6 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>jQuery UI Spinner - Default functionality</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
 
@@ -150,8 +149,8 @@
                   <div class="col-md-6">
                     <label for="c_fname" class="text-black"><span class="text-danger">
                       <p>
-                        <label for="spinner">모집 인원 수:</label>
-                        <input id="spinner" name="value">
+                        <label for="maxEnrollmentNum">모집 인원 수:</label>
+                        <input id="maxEnrollmentNum" name="value">
                       </p>
                     </span></label>
                   </div>
@@ -298,7 +297,7 @@
   <script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
 
   <!-- 모집 인원 -->
-  <script>
+  <!-- <script>
   $( function() {
     var spinner = $( "#spinner" ).spinner();
  
@@ -315,7 +314,7 @@
  
     $( "button" ).button();
   } );
-  </script>
+  </script> -->
 
 
   <!-- 등록 / 수정 변경 -->
@@ -347,7 +346,7 @@
         "postStatus": $("#postStatus").val(),
         "area": $("#area").val(),
         "endTime": $("#LocalDateTime").val(),
-        "spinner": $("#spinner").val(),
+        "maxEnrollmentNum": $("#maxEnrollmentNum").val(),
         "centerName": $("#centerName").val()
       }),
     };
@@ -378,6 +377,7 @@
         $('area').text(e['area'])
         $('#LocalDateTime').date(e['endTime'])
         $('centerName').text(e['centerName'])
+        $('maxEnrollmentNum').text(e['maxEnrollmentNum'])
       },
     })
     }
@@ -400,13 +400,13 @@
           "postStatus": $('#postStatus').val(),
           "area": $('#area').val(),
           "endTime": $('#LocalDateTime').val(),
-          "spinner": $('#spinner').val(),
+          "maxEnrollmentNum": $('#maxEnrollmentNum').val(),
           "centerName": $('#centerName').val(),
         }),
       };
 
       $.ajax(settings).done(function (response) {
-        alert('챌린지를 수정하였습니다.')
+        alert('게시물를 수정하였습니다.')
         window.location.href = '/volunteerWorkPost_menu1.html'
       });
     }

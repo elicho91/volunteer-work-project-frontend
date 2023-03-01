@@ -106,39 +106,28 @@
             <div id="title">
               <h2 class="text-black"></h2>
             </div>
-            <div id="datepicker">
-              <p></p>
-            </div>
-            <div id="spinner">
-              <p></p>
-            </div>
-            <div>
+            <div id="title">
               <p class="mb-4" id="content"><strong></strong></p>
             </div>
-            <div id="area">
+            <div id="LocalDateTime">
               <p><strong class="text-primary h4"></strong></p>
             </div>
-            <div id="LocalDateTime">
+            <div id="area">
               <p><strong class="text-primary h4"></strong></p>
             </div>
             <div id="centerName">
               <p><strong class="text-primary h4"></strong></p>
             </div>
+            <div id="maxEnrollmentNum">
+              <th><p></p></th>
+              <th><p><span id="maxEnrollmentNumText"></span>명 모집</p></th>
+              <th><p>(<span id="postStatusText"></span>)</p></th>
+            </div>
             <div id="collectNum">
               <p><strong class="text-primary h4"></strong></p>
             </div>
 
-            <div class="mb-5">
-              <div class="input-group mb-3" style="max-width: 120px;">
-                <div class="input-group-prepend">
-                  <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                </div>
-                <input type="text" class="form-control text-center" value="1" placeholder=""
-                  aria-label="Example text with button addon" aria-describedby="button-addon1">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                </div>
-              </div>
+          
 
 
             </div>
@@ -161,7 +150,7 @@
               </div>
             </div>
 
-            <button class="button" data-for="js_basic-popup2" onclick="getEnrollmentList()">참여 신청 조회</button>
+            <button class="button" data-for="js_basic-popup2" onclick="getEnrollmentListOnClick()">참여 신청 조회</button>
             <div class="popup js_basic-popup2">
               <div class="popup__background"></div>
               <div class="popup__content">
@@ -561,6 +550,7 @@
       }
     }
   </style>
+  
   <style>
     html {
       font-family: "Noto Sans KR", sans-serif;
@@ -759,7 +749,8 @@
           $('#area').text(e['area'])
           $('#centerName').text(e['centerName'])
           $('#LocalDateTime').text(e['endTime'])
-          $('#maxEnrollmentNum').text(e['maxEnrollmentNum'])
+          $('#maxEnrollmentNumText').text(e['maxEnrollmentNum'])
+          $('#postStatusText').text(e['postStatus'] ? '모집중' : '모집완료');
 
         },
       })
@@ -889,6 +880,10 @@
 
         },
       })
+    }
+    function getEnrollmentListOnClick() {
+      $('#application_list').empty();
+      getEnrollmentList();
     }
   </script>
 
