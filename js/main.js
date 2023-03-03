@@ -204,7 +204,7 @@ jQuery(document).ready(function($) {
 
 function getUserMe(){
 	var settings = {
-		"url": "http://localhost:8080/profiles",
+		"url": "http://localhost:8080/mypage/profiles",
 		"method": "GET",
 		"timeout": 0,
 		"headers": {

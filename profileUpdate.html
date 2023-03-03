@@ -247,7 +247,7 @@
 function userprofile() {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/profiles",
+        url: "http://localhost:8080/mypage/profiles",
         data: {},
         headers: {
           "Authorization": localStorage.getItem('accessToken')
@@ -264,7 +264,7 @@ function userprofile() {
 
 function update_profile(){
   const settings = {
-    "url": "http://localhost:8080/profiles",
+    "url": "http://localhost:8080/mypage/profiles",
     "method": "PATCH",
     "timeout": 0,
     "headers": {
