@@ -140,9 +140,13 @@
                     <input type="text" class="form-control" id="title" name="c_fname">
                   </div>
                 </div>       
+                <div class="col-md-5">
+                  <label for="image" class="text-black">첨부파일<span class="text-danger"></span></label>
+                  <input type="file" class="form-control" id="image" name="image">
+                </div>
                 <div class="form-group row">
                   <div class="col-md-6">
-                    <label for="c_fname" class="text-black"><span class="text-danger"><p>모집 날짜*: <input type="datetime-local" id="LocalDateTime" name="endTime"></p></span></label>
+                    <label for="c_fname" class="text-black"><span class="text-danger"><p>모집 날짜*: <input type="datetime-local" id="endTime" name="endTime"></p></span></label>
                   </div>
                 </div>  
                 <div class="form-group row">
@@ -181,8 +185,6 @@
                   </div>
                 </div>
 
-                <div id="map" style="width:100%;height:400px;"></div>
-
                 <div class="form-group row">
                   <div class="col-md-12">
                     <label for="c_message" class="text-black">내용</label>
@@ -197,7 +199,6 @@
                 </div>
               </div>
             </form>
-            <div id="map" style="width:100%;height:400px;"></div>
           </div>
         
         </div>
@@ -296,25 +297,6 @@
 
   <script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
 
-  <!-- 모집 인원 -->
-  <!-- <script>
-  $( function() {
-    var spinner = $( "#spinner" ).spinner();
- 
-    $( "#destroy" ).on( "click", function() {
-      if ( spinner.spinner( "instance" ) ) {
-        spinner.spinner( "destroy" );
-      } else {
-        spinner.spinner();
-      }
-    });
-    $( "#getvalue" ).on( "click", function() {
-      alert( spinner.spinner( "value" ) );
-    });
- 
-    $( "button" ).button();
-  } );
-  </script> -->
 
 
   <!-- 등록 / 수정 변경 -->
@@ -327,39 +309,43 @@
     function typeCheck() {
       return document.location.href.includes("id") ? updatePost() : createPost()
     }
-  </script>
 
-  <!-- 게시글 작성 -->
-  <script>
-    function createPost() {
-      const settings = {
-        "url": "http://localhost:8080/volunteerWorkPosts",
-        "method": "POST",
-        "timeout": 0,
-        "headers": {
-          "Authorization": localStorage.getItem('accessToken'),
-          "Content-Type": "application/json"
-      },
-      "data": JSON.stringify({
-        "title": $("#title").val(),
-        "content": $("#content").val(),
-        "postStatus": $("#postStatus").val(),
-        "area": $("#area").val(),
-        "endTime": $("#LocalDateTime").val(),
-        "maxEnrollmentNum": $("#maxEnrollmentNum").val(),
-        "centerName": $("#centerName").val()
-      }),
+  //게시글 작성
+  function createPost() {
+    const data = {
+      title: $('#title').val(),
+      content: $('#content').val(),
+      area: $('#area').val(),
+      endTime: $('#endTime').val(),
+      centerName: $('#centerName').val(),
+      maxEnrollmentNum: $('#maxEnrollmentNum').val()
     };
+    let form = new FormData();
+    form.append('file', image.files[0], $('#image').val());
+    form.append('requestDto', new Blob([JSON.stringify(data)], {type:'application/json'}));
 
-    $.ajax(settings).done(function (response) {
-      alert("등록되었습니다.")
-      window.location.href = "/volunteerWorkPost_menu1.html"
-    });
-    }
-  </script>
+    const settings = {
+      "url": "http://localhost:8080/volunteerWorkPosts",
+      "method": "POST",
+      "timeout":0,
+      "headers": {
+        "Authorization": localStorage.getItem('accessToken')
+      },
+      "processData": false,
+      "mimeType": "multipart/form-data",
+      "contentType": false,
+      "data": form
+    };
+    $.ajax(settings).done(function (data){
+      console.log(data);
+      window.location.href='volunteerWorkPost_menu1.html'
+    }) 
+  }
+ 
+    
 
-  <!-- 게시글 수정하기 -->
-  <script>
+
+//게시글 수정
     function getWorkPost(){
       const id = document.location.href.split("=")[1];
     $.ajax({
@@ -373,54 +359,53 @@
         const e = (response['data'])
         console.log(e)
         $('#title').attr('value', e['title'])
+        $('#image').attr('src', e['image'])
         $('#content').text(e['content'])
         $('area').text(e['area'])
-        $('#LocalDateTime').date(e['endTime'])
+        $('#endTime').date(e['endTime'])
         $('centerName').text(e['centerName'])
-        $('maxEnrollmentNum').text(e['maxEnrollmentNum'])
+        $('maxEnrollmentNum').text(e['maxEnrollmentNum']),
+        $('#image').attr("src", 'image')
       },
     })
     }
-  </script>
 
-  <script>
     function updatePost() {
       const id = document.location.href.split("=")[1];
+      const data = {
+        title: $('#title').val(),
+        content: $('#content').val(),
+        area: $('#area').val(),
+        endTime: $('#endTime').val(),
+        centerName: $('#centerName').val(),
+        maxEnrollmentNum: $('#maxEnrollmentNum').val(),
+
+        };
+        let form = new FormData();
+        form.append("file", image.files[0], $("#image").val());
+        form.append('requestDto', new Blob([JSON.stringify(data)] , {type: "application/json"}));
+          
       const settings = {
-        "url": "http://localhost:8080/volunteerWorkPosts/" + id,
+
+        "url": "http://localhost:8080/volunteerWorkPosts/"+id,
         "method": "PATCH",
         "timeout": 0,
         "headers": {
-          "Authorization": localStorage.getItem('accessToken'),
-          "Content-Type": "application/json"
+          "Authorization": localStorage.getItem('accessToken')
         },
-        "data": JSON.stringify({
-          "title": $('#title').val(),
-          "content": $('#content').val(),
-          "postStatus": $('#postStatus').val(),
-          "area": $('#area').val(),
-          "endTime": $('#LocalDateTime').val(),
-          "maxEnrollmentNum": $('#maxEnrollmentNum').val(),
-          "centerName": $('#centerName').val(),
-        }),
+        "processData": false,
+        "mimeType": "multipart/form-data",
+        "contentType": false,
+        "data": form
       };
 
-      $.ajax(settings).done(function (response) {
-        alert('게시물를 수정하였습니다.')
-        window.location.href = '/volunteerWorkPost_menu1.html'
-      });
-    }
+      $.ajax(settings).done(function (data) {
+        console.log(data);
+        window.location.href ='volunteerWorkPost_menu1.html'
+      }
+      );
+      }
   </script>
-
-  <!-- 지도 설정 -->
-  <script>
-    var mapOptions = {
-        center: new naver.maps.LatLng(37.3595704, 127.105399),
-        zoom: 10
-    };
-    
-    var map = new naver.maps.Map('map', mapOptions);
-    </script>
     
   </body>
 </html>

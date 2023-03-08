@@ -242,6 +242,7 @@
           const arr = (response['data'])
           for (let i = 0; i < arr.length; i++) {
             const obj = arr[i];
+            const image = obj["image"]
             const id = obj["postId"]
             const title = obj["title"]
             const area = obj["area"]
@@ -251,7 +252,7 @@
             <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
-                    <a onclick="window.location.href='/volunteerWorkPost-single.html?id=${id}'"><img src="https://vrthumb.imagetoday.co.kr/2020/05/06/tid353t000069.jpg" alt="Image placeholder" class="img-fluid"></a>
+                    <a onclick="window.location.href='/volunteerWorkPost-single.html?id=${id}'"><img src="${image}" alt="Image placeholder" class="img-fluid"></a>
                   </figure>
                   <div class="block-4-text p-4">
                     <h3><a onclick="window.location.href='/volunteerWorkPost-single.html?id=${id}'">${title}</a></h3>
