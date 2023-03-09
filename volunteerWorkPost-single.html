@@ -100,7 +100,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <img  id="image" alt="Image" class="img-fluid">
+            <img  id="image" style="height: 300px;" alt="Image" class="img-fluid">
           </div>
           <div class="col-md-6">
             <div id="title">
@@ -793,7 +793,7 @@
   <script>
     $(window.document).ready(function () {
       userprofile();
-      document.location.href.includes("id") && enrollment();
+      document.location.href.includes("id");
     })
     function userprofile() {
       $.ajax({

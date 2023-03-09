@@ -360,28 +360,33 @@
         })
 
         function typeCheck() {
-             document.location.href.includes("id") ? putChallengeAuth() : postChallengeAuth()
+            document.location.href.includes("id") ? putChallengeAuth() : postChallengeAuth()
         }
 
         function postChallengeAuth() {
+            const data = {
+                title: $('#title').val(),
+                content: $('#content').val(),
+            };
+            let form = new FormData();
+            form.append('file', image.files[0], $('#image').val());
+            form.append('requestDto', new Blob([JSON.stringify(data)], { type: 'application/json' }));
+
             const settings = {
                 "url": "http://localhost:8080/challenge-auth",
                 "method": "POST",
                 "timeout": 0,
                 "headers": {
-                    "Authorization": localStorage.getItem('accessToken'),
-                    "Content-Type": "application/json"
+                    "Authorization": localStorage.getItem('accessToken')
                 },
-                "data": JSON.stringify({
-                    "userId": $('#userId').text(),
-                    "title": $('#title').val(),
-                    "image": $('#image').val(),
-                    "content": $('#content').val()
-                }),
+                "processData": false,
+                "mimeType": "multipart/form-data",
+                "contentType": false,
+                "data": form
             };
 
             $.ajax(settings).done(function (response) {
-                alert('챌린지 자랑을 등록하였습니다.')
+                alert('챌린지 자랑이 등록되었습니다.')
                 window.location.replace('/challenge-auth.html');
             });
         }
@@ -396,7 +401,6 @@
                 },
                 success: function (response) {
                     const e = (response['data'])
-                    console.log(typeof e['userId'])
                     $('#userId').text(e['userId'])
                 },
             })
@@ -414,7 +418,7 @@
                     const e = (response['data'])
                     $('#title').attr("value", e['title'])
                     $('#content').text(e['content'])
-                    $('image').text(e['image'])
+                    $('image').attr("src", 'image')
                     $('#put_btn').attr("value", "수정하기")
                     $('.put_post').attr("id", "")
                 },

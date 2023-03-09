@@ -54,12 +54,13 @@
                       <span class="icon icon-shopping_cart"></span>
                       <span class="count">2</span>
                     </a>
-                  </li> 
+                  </li>
                   <li><a href="/mypage.html"><span>MyPage</span></a></li>
-                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
+                        class="icon-menu"></span></a></li>
                   <button type="button" class="submit" onclick="signout()">로그아웃</button>
                 </ul>
-              </div> 
+              </div>
             </div>
           </div>
         </div>
@@ -68,12 +69,12 @@
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="has-children active">
-              <li class="has-children">
-                <a href="about.html">봉사활동</a>
-                <ul class="dropdown">
-                  <li><a href="volunteerWorkPost_menu1.html">동물보호 센터</a></li>
-                  <li><a href="volunteerWorkPost_menu2.html">기업 / 단체 봉사</a></li>
-                  <li><a href="volunteerWorkPost_menu3.html">기타</a></li>
+            <li class="has-children">
+              <a href="about.html">봉사활동</a>
+              <ul class="dropdown">
+                <li><a href="volunteerWorkPost_menu1.html">동물보호 센터</a></li>
+                <li><a href="volunteerWorkPost_menu2.html">기업 / 단체 봉사</a></li>
+                <li><a href="volunteerWorkPost_menu3.html">기타</a></li>
               </ul>
             </li>
             <li><a href="challenge.html">챌린지</a></li>
@@ -98,9 +99,9 @@
       <div class="container">
         <div class="row" id="getChallenge">
           <div class="col-md-6">
-            <div id="image"><img
-                src="https://velog.velcdn.com/images/she9742/post/411f77e0-9ed1-408f-a28b-9b61bb4dc299/image.jpg"
-                alt="Image" class="img-fluid"></div>
+            <div>
+              <img id="image" style="height: 300px;">
+            </div>
           </div>
           <div class="col-md-6">
             <div id="title">
@@ -110,83 +111,20 @@
               <p></p>
             </div>
           </div>
+          <br/>
+
+      <div>
           <p><a href="challenge-participate.html" class="buy-now btn btn-sm btn-primary">참여하기</a></p>
           <p><a onclick="updatePage()" class="buy-now btn btn-sm btn-primary">수정하기</a></p>
           <p><a onclick="deleteChallenge()" class="buy-now btn btn-sm btn-primary">삭제하기</a></p>
+      </div>
+
         </div>
       </div>
     </div>
   </div>
 
-  <footer class="site-footer border-top">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mb-5 mb-lg-0">
-          <div class="row">
-            <div class="col-md-12">
-              <h3 class="footer-heading mb-4">Navigations</h3>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <ul class="list-unstyled">
-                <li><a href="#">Sell online</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Shopping cart</a></li>
-                <li><a href="#">Store builder</a></li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <ul class="list-unstyled">
-                <li><a href="#">Mobile commerce</a></li>
-                <li><a href="#">Dropshipping</a></li>
-                <li><a href="#">Website development</a></li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <ul class="list-unstyled">
-                <li><a href="#">Point of sale</a></li>
-                <li><a href="#">Hardware</a></li>
-                <li><a href="#">Software</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="block-5 mb-5">
-            <h3 class="footer-heading mb-4">Contact Info</h3>
-            <ul class="list-unstyled">
-              <li class="address">203 Fake St. Mountain View, San Francisco, California, USA</li>
-              <li class="phone"><a href="tel://23923929210">+2 392 3929 210</a></li>
-              <li class="email">emailaddress@domain.com</li>
-            </ul>
-          </div>
-
-          <div class="block-7">
-            <form action="#" method="post">
-              <label for="email_subscribe" class="footer-heading">Subscribe</label>
-              <div class="form-group">
-                <input type="text" class="form-control py-4" id="email_subscribe" placeholder="Email">
-                <input type="submit" class="btn btn-sm btn-primary" value="Send">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="row pt-5 mt-5 text-center">
-        <div class="col-md-12">
-          <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;
-            <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with
-            <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank"
-              class="text-primary">Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </footer>
+  
   </div>
 
   <script src="js/jquery-3.3.1.min.js"></script>
@@ -214,10 +152,12 @@
           "Authorization": localStorage.getItem('accessToken')
         },
         success: function (response) {
-          const e = (response['data'])
+          const e = (response.data)
+          console.log(e)
           $('#title').text(e['title'])
           $('#content').text(e['content'])
-          $('image').text(e['image'])
+          $('#image').attr("src", e['image'])
+          console.log(response)
         },
       })
     }
@@ -227,10 +167,29 @@
 
     }
 
+
+    // function getChallenge() {
+    //   const id = document.location.href.split("=")[1];
+    //   $.ajax({
+    //     type: "GET",
+    //     url: "http://localhost:8080/challenges/" + id,
+    //     data: {},
+    //     headers: {
+    //       "Authorization": localStorage.getItem('accessToken')
+    //     },
+    //     success: function (response) {
+    //       const e = (response['data'])
+    //       $('#title').text(e['title'])
+    //       $('#content').text(e['content'])
+    //       $('image').text(e['image'])
+    //     },
+    //   })
+    // }
+
     function deleteChallenge() {
       const id = document.location.href.split("=")[1];
       var settings = {
-        "url": "http://localhost:8080/admin/challenges/" +id,
+        "url": "http://localhost:8080/admin/challenges/" + id,
         "method": "DELETE",
         "timeout": 0,
         "headers": {

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
     <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -103,7 +105,7 @@
           </div>
           <div class="col-md-7">
 
-            <form>
+            <form enctype="multipart/form-data" id="form">
               
               <div class="p-3 p-lg-5 border">
                 <div class="form-group row">
@@ -134,7 +136,7 @@
                 <div class="form-group row">
                   <div class="col-md-6">
                     <label for="c_frame" class="text-black">프로필사진</label>
-                    <input type="file" class="form-control" id="image" name="c_fname">
+                    <input type="file" class="form-control" id="fileInput" name="fileInput">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -241,6 +243,7 @@
   <script src="js/main.js"></script>
     
   <script>
+    
     $(window.document).ready(function() {
     userprofile();
 })
@@ -262,29 +265,66 @@ function userprofile() {
         },
 })}
 
-function update_profile(){
-  const settings = {
-    "url": "http://localhost:8080/mypage/profiles",
-    "method": "PATCH",
-    "timeout": 0,
-    "headers": {
-      "Authorization": localStorage.getItem('accessToken'),
-      "Content-Type": "application/json"
-    },
-    "data": JSON.stringify({
-      "nickname": $('#nickname').val(),
-      "phoneNumber": $('#phoneNumber').val(),
-      "interestArea": $('#interestArea').val(),
-      "password": $('#password').val(),
-      "image": $('#image').val()
-    }),
-  };
+// function update_profile(){
+//   const settings = {
+//     "url": "http://localhost:8080/mypage/profiles",
+//     "method": "PATCH",
+//     "timeout": 0,
+//     "headers": {
+//       "Authorization": localStorage.getItem('accessToken'),
+//       "Content-Type": "application/json"
+//     },
+//     "data": JSON.stringify({
+//       "nickname": $('#nickname').val(),
+//       "phoneNumber": $('#phoneNumber').val(),
+//       "interestArea": $('#interestArea').val(),
+//       "password": $('#password').val(),
+//     }),
+//     "processData": false,
+//   "mimeType": "multipart/form-data",
+//   "contentType": false,
+//   "data": form
+    
+//   };
 
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-    alert("프로필 수정이 완료되었습니다.")
-		window.location.replace('/mypage.html')
-  });
+//   $.ajax(settings).done(function (response) {
+//     console.log(response);
+//     alert("프로필 수정이 완료되었습니다.")
+// 		window.location.replace('/mypage.html')
+//   });
+// }
+
+function update_profile(){
+
+  const data = {
+    nickname: $('#nickname').val(),
+    phoneNumber: $('#phoneNumber').val(),
+    interestArea: $('#interestArea').val(),
+    password: $('#password').val()
+		};
+    let form = new FormData();
+    form.append("file", fileInput.files[0], $("#fileInput").val());
+		form.append('requestDto', new Blob([JSON.stringify(data)] , {type: "application/json"}));
+    
+const settings = {
+
+  "url": "http://localhost:8080/mypage/profiles",
+  "method": "PATCH",
+  "timeout": 0,
+  "headers": {
+    "Authorization": localStorage.getItem('accessToken')
+  },
+  "processData": false,
+  "mimeType": "multipart/form-data",
+  "contentType": false,
+  "data": form
+};
+
+$.ajax(settings).done(function (data) {
+  console.log(data);
+  window.location.href = '/mypage.html'
+}
+);
 }
 
   </script>

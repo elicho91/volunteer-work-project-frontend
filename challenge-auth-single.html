@@ -100,11 +100,9 @@
         <div class="site-section">
             <div class="container">
                 <div class="row" id="getChallenge">
-                    <div class="col-md-6">
-                        <div id="image"><img
-                                src="https://velog.velcdn.com/images/she9742/post/411f77e0-9ed1-408f-a28b-9b61bb4dc299/image.jpg"
-                                alt="Image" class="img-fluid"></div>
-                    </div>
+                    <figure class="block-4-image">
+                        <img id="image" style="height: 300px;">
+                      </figure>
                     <div class="col-md-6">
                         <div id="title">
                             <h2 class="text-black"></h2>
@@ -112,9 +110,12 @@
                         <div id="content">
                             <p></p>
                         </div>
+                        <div>
+                            <p><a onclick="updatePage()" class="buy-now btn btn-sm btn-primary">수정하기</a></p>
+                            <p><a onclick="deleteChallengeAuth()" class="buy-now btn btn-sm btn-primary">삭제하기</a></p>
+                        </div>
                     </div>
-                    <p><a onclick="updatePage()" class="buy-now btn btn-sm btn-primary">수정하기</a></p>
-                    <p><a onclick="deleteChallengeAuth()" class="buy-now btn btn-sm btn-primary">삭제하기</a></p>
+                  
                 </div>
             </div>
         </div>
@@ -260,7 +261,7 @@
                     const e = (response['data'])
                     $('#title').text(e['title'])
                     $('#content').text(e['content'])
-                    $('image').text(e['image'])
+                    $('#image').attr('src', e['image'])
 
 
                 },
