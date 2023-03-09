@@ -682,7 +682,7 @@
           $('#centerName').text(e['centerName'])
           $('#LocalDateTime').text(e['endTime'])
           $('#maxEnrollmentNumText').text(e['maxEnrollmentNum'])
-          $('#postStatusText').text(e['postStatus'] ? '모집중' : '모집완료');
+          $('#postStatus').text(e['postStatus'] ==='TRUE' ? '모집중' : '모집완료');
 
         },
       })
