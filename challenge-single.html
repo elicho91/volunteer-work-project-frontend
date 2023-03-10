@@ -138,7 +138,7 @@
       const id = document.location.href.split("=")[1];
       $.ajax({
         type: "GET",
-        url: "http://localhost:8080/challenges/" + id,
+        url: "https://api.volunteering.store:8080/challenges/" + id,
         data: {},
         headers: {
           "Authorization": localStorage.getItem('accessToken')
@@ -164,7 +164,7 @@
     //   const id = document.location.href.split("=")[1];
     //   $.ajax({
     //     type: "GET",
-    //     url: "http://localhost:8080/challenges/" + id,
+    //     url: "https://api.volunteering.store:8080/challenges/" + id,
     //     data: {},
     //     headers: {
     //       "Authorization": localStorage.getItem('accessToken')
@@ -181,7 +181,7 @@
     function deleteChallenge() {
       const id = document.location.href.split("=")[1];
       var settings = {
-        "url": "http://localhost:8080/admin/challenges/" + id,
+        "url": "https://api.volunteering.store:8080/admin/challenges/" + id,
         "method": "DELETE",
         "timeout": 0,
         "headers": {

@@ -321,7 +321,7 @@
 
 
       const settings = {
-        "url": "http://localhost:8080/admin/challenges",
+        "url": "https://api.volunteering.store:8080/admin/challenges",
         "method": "POST",
         "timeout": 0,
         "headers": {
@@ -342,7 +342,7 @@
 
 
       //   const settings = {
-      //     "url": "http://localhost:8080/admin/challenges",
+      //     "url": "https://api.volunteering.store:8080/admin/challenges",
       //     "method": "POST",
       //     "timeout": 0,
       //     "headers": {
@@ -367,7 +367,7 @@
     function userprofile() {
       $.ajax({
         type: "GET",
-        url: "http://localhost:8080//mypage/profiles",
+        url: "https://api.volunteering.store:8080//mypage/profiles",
         data: {},
         headers: {
           "Authorization": localStorage.getItem('accessToken')
@@ -384,7 +384,7 @@
       const id = document.location.href.split("=")[1];
       $.ajax({
         type: "GET",
-        url: "http://localhost:8080/challenges/" + id,
+        url: "https://api.volunteering.store:8080/challenges/" + id,
         data: {},
         headers: {
           "Authorization": localStorage.getItem('accessToken')
@@ -413,7 +413,7 @@
 
 
       const settings = {
-        "url": "http://localhost:8080/admin/challenges/" + id,
+        "url": "https://api.volunteering.store:8080/admin/challenges/" + id,
         "method": "PATCH",
         "timeout": 0,
         "headers": {
@@ -431,7 +431,7 @@
         console.log(response);
       });
       // const settings = {
-      //   "url": "http://localhost:8080/admin/challenges/" + id,
+      //   "url": "https://api.volunteering.store:8080/admin/challenges/" + id,
       //   "method": "PATCH",
       //   "timeout": 0,
       //   "headers": {

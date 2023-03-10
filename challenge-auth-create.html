@@ -372,7 +372,7 @@
             form.append('requestDto', new Blob([JSON.stringify(data)], { type: 'application/json' }));
 
             const settings = {
-                "url": "http://localhost:8080/challenge-auth",
+                "url": "https://api.volunteering.store:8080/challenge-auth",
                 "method": "POST",
                 "timeout": 0,
                 "headers": {
@@ -393,7 +393,7 @@
         function userprofile() {
             $.ajax({
                 type: "GET",
-                url: "http://localhost:8080/mypage/profiles",
+                url: "https://api.volunteering.store:8080/mypage/profiles",
                 data: {},
                 headers: {
                     "Authorization": localStorage.getItem('accessToken')
@@ -408,7 +408,7 @@
             const id = document.location.href.split("=")[1];
             $.ajax({
                 type: "GET",
-                url: "http://localhost:8080/challenge-auth/" + id,
+                url: "https://api.volunteering.store:8080/challenge-auth/" + id,
                 data: {},
                 headers: {
                     "Authorization": localStorage.getItem('accessToken')
@@ -427,7 +427,7 @@
         function putChallengeAuth() {
             const id = document.location.href.split("=")[1];
             const settings = {
-                "url": "http://localhost:8080/challenge-auth/" + id,
+                "url": "https://api.volunteering.store:8080/challenge-auth/" + id,
                 "method": "PATCH",
                 "timeout": 0,
                 "headers": {

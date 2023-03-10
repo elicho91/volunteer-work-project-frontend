@@ -18,8 +18,8 @@
 
   <link rel="stylesheet" href="css/aos.css">
 
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/comment.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/comment.css">
 
 </head>
 
@@ -668,7 +668,7 @@
       const id = document.location.href.split("=")[1];
       $.ajax({
         type: "GET",
-        url: "http://localhost:8080/volunteerWorkPosts/" + id,
+        url: "https://api.volunteering.store:8080/volunteerWorkPosts/" + id,
         data: {},
         headers: {
           "Authorization": localStorage.getItem('accessToken')
@@ -706,7 +706,7 @@
       const id = document.location.href.split("=")[1];
       $.ajax({
         type: "DELETE",
-        url: "http://localhost:8080/volunteerWorkPosts/" + id,
+        url: "https://api.volunteering.store:8080/volunteerWorkPosts/" + id,
         data: {},
         headers: {
           Authorization: localStorage.getItem("accessToken")
@@ -731,7 +731,7 @@
     function userprofile() {
       $.ajax({
         type: "GET",
-        url: "http://localhost:8080/mypage/profiles",
+        url: "https://api.volunteering.store:8080/mypage/profiles",
         data: {},
         headers: {
           "Authorization": localStorage.getItem('accessToken')
@@ -751,7 +751,7 @@
     function enrollment() {
       const id = document.location.href.split("=")[1];
       $.ajax({
-        url: "http://localhost:8080/volunteerWorkPosts/" + id + "/enrollments",
+        url: "https://api.volunteering.store:8080/volunteerWorkPosts/" + id + "/enrollments",
         method: "POST",
         timeout: 0,
         headers: {
@@ -783,7 +783,7 @@
       const id = document.location.href.split("=")[1];
       $.ajax({
         type: "GET",
-        url: "http://localhost:8080/volunteerWorkPosts/" + id + "/enrollments",
+        url: "https://api.volunteering.store:8080/volunteerWorkPosts/" + id + "/enrollments",
         data: {},
         headers: {
           "Authorization": localStorage.getItem('accessToken')
@@ -826,7 +826,7 @@
       // url에서 해당 postId값을 가져옵니다.
       const id = document.location.href.split("=")[1];
       const settings = {
-        "url": "http://localhost:8080/volunteerWorkPosts/" + id + "/comments",
+        "url": "https://api.volunteering.store:8080/volunteerWorkPosts/" + id + "/comments",
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -897,7 +897,7 @@
       // url에서 해당 postId값을 가져옵니다.
       const id = document.location.href.split("=")[1];
       const settings = {
-        "url": "http://localhost:8080/volunteerWorkPosts/" + id + "/comments",
+        "url": "https://api.volunteering.store:8080/volunteerWorkPosts/" + id + "/comments",
         "method": "POST",
         "timeout": 0,
         "headers": {
@@ -930,7 +930,7 @@
       const id = document.location.href.split("=")[1];
       $.ajax({
         type: "GET",
-        url: "http://localhost:8080/volunteerWorkPosts/" + id + "/comments",
+        url: "https://api.volunteering.store:8080/volunteerWorkPosts/" + id + "/comments",
         data: {},
         headers: {
           "Authorization": localStorage.getItem('accessToken')
@@ -953,7 +953,7 @@
       const id = document.location.href.split("=")[1];
 
       const settings = {
-        "url": "http://localhost:8080/volunteerWorkPosts/" + id + "/comments/" + id2,
+        "url": "https://api.volunteering.store:8080/volunteerWorkPosts/" + id + "/comments/" + id2,
         "method": "PATCH",
         "timeout": 0,
         "headers": {
@@ -979,7 +979,7 @@
       var id2 = $(e.target).data('id2');
 
       const settings = {
-        "url": "http://localhost:8080/volunteerWorkPosts/" + id + "/comments/" + id2,
+        "url": "https://api.volunteering.store:8080/volunteerWorkPosts/" + id + "/comments/" + id2,
         "method": "DELETE",
         "timeout": 0,
         "headers": {

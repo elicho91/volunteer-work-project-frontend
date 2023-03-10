@@ -234,7 +234,7 @@
     function myVolunteerWorkList() {
       $.ajax({
         type: "GET",
-        url: "http://localhost:8080/enrollments",
+        url: "https://api.volunteering.store:8080/enrollments",
         data: {},
         headers: {
           "Authorization": localStorage.getItem('accessToken')

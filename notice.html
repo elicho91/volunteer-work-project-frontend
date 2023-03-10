@@ -18,7 +18,7 @@
 
     <!-- <link rel="stylesheet" href="css/aos.css"> -->
 
-    <link rel="stylesheet" href="/css/notice.css">
+    <link rel="stylesheet" href="../css/notice.css">
     
   </head>
   <body>
@@ -297,7 +297,7 @@
     
    function loadNoticeList() {
   const settings = {
-    "url": "http://localhost:8080/notices",
+    "url": "https://api.volunteering.store:8080/notices",
     "method": "GET",
     "timeout": 0,
     "headers": {
@@ -351,7 +351,7 @@
 // 공지사항 작성하기
 function post_notice(){
 const settings = {
-  "url": "http://localhost:8080/admin/notices",
+  "url": "https://api.volunteering.store:8080/admin/notices",
   "method": "POST",
   "timeout": 0,
   "headers": {
@@ -380,7 +380,7 @@ $(document).on('click', '.edit', function() {
 function patch_notice() {
 console.log(currentNoticeId);
   const settings = {
-    "url": "http://localhost:8080/admin/notices/" + currentNoticeId,
+    "url": "https://api.volunteering.store:8080/admin/notices/" + currentNoticeId,
     "method": "PATCH",
     "timeout": 0,
     "headers": {
@@ -405,7 +405,7 @@ $(document).on('click', '.delete', function() {
   currentNoticeId = $(this).attr('notice-id');
 
   const settings = {
-    "url": "http://localhost:8080/admin/notices/" + currentNoticeId,
+    "url": "https://api.volunteering.store:8080/admin/notices/" + currentNoticeId,
     "method": "DELETE",
     "timeout": 0,
     "headers": {
@@ -428,7 +428,7 @@ $(document).on('click', 'a[data-notice-id]', function() {
   // 공지사항 내용 조회
   $.ajax({
     type: "GET",
-    url: "http://localhost:8080/notices/" + currentNoticeId,
+    url: "https://api.volunteering.store:8080/notices/" + currentNoticeId,
     headers: {
       "Authorization": localStorage.getItem('accessToken'),
       "Content-Type": "application/json"
