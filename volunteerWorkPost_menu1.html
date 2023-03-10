@@ -166,7 +166,7 @@
     function workPostList() {
       $.ajax({
         type: "GET",
-        url: "http://localhost:8080/volunteerWorkPosts",
+        url: "https://api.volunteering.store:8080/volunteerWorkPosts",
         data: {},
         headers: {
           "Authorization": localStorage.getItem('accessToken')

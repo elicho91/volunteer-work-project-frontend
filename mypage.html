@@ -241,7 +241,7 @@
 function userprofile() {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/mypage/profiles",
+        url: "https://api.volunteering.store:8080/mypage/profiles",
         data: {},
         headers: {
           "Authorization": localStorage.getItem('accessToken')

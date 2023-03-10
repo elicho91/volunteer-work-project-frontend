@@ -172,7 +172,7 @@
             const id = document.location.href.split("=")[1];
             $.ajax({
                 type: "GET",
-                url: "http://localhost:8080/challenge-auth/" + id,
+                url: "https://api.volunteering.store:8080/challenge-auth/" + id,
                 data: {},
                 headers: {
                     "Authorization": localStorage.getItem('accessToken')
@@ -196,7 +196,7 @@
         function deleteChallengeAuth() {
             const id = document.location.href.split("=")[1];
             const settings = {
-                "url": "http://localhost:8080/challenge-auth/" + id,
+                "url": "https://api.volunteering.store:8080/challenge-auth/" + id,
                 "method": "DELETE",
                 "timeout": 0,
                 "headers": {
@@ -214,7 +214,7 @@
             const id = document.location.href.split("=")[1];
             console.log(id)
             const settings = {
-                "url": "http://localhost:8080/challenge-auth/" + id,
+                "url": "https://api.volunteering.store:8080/challenge-auth/" + id,
                 "method": "GET",
                 "timeout": 0,
                 "headers": {
@@ -283,7 +283,7 @@
             const id = document.location.href.split("=")[1];
 
             const settings = {
-                "url": "http://localhost:8080/challenge-auth/" + id + "/challengeAuthComments",
+                "url": "https://api.volunteering.store:8080/challenge-auth/" + id + "/challengeAuthComments",
                 "method": "POST",
                 "timeout": 0,
                 "headers": {
@@ -315,7 +315,7 @@
             const commentId = $(".patch_btn").attr("id");
 
             const settings = {
-                "url": "http://localhost:8080/challenge-auth/" + id + "/challengeAuthComment/" + commentId,
+                "url": "https://api.volunteering.store:8080/challenge-auth/" + id + "/challengeAuthComment/" + commentId,
                 "method": "PATCH",
                 "timeout": 0,
                 "headers": {
@@ -338,7 +338,7 @@
             const id = document.location.href.split("=")[1];
             const commentId = $(".delete_btn").attr("id");
             const settings = {
-                "url": "http://localhost:8080/challenge-auth/" + id + "/challengeAuthComments/" + commentId,
+                "url": "https://api.volunteering.store:8080/challenge-auth/" + id + "/challengeAuthComments/" + commentId,
                 "method": "DELETE",
                 "timeout": 0,
                 "headers": {
