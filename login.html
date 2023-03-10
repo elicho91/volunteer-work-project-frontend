@@ -94,7 +94,7 @@ function signup(){
     dataObj.adminToken = $('#adminToken').val();
   }
   const settings = {
-    "url": "https://api.volunteering.store:8080/users/signup",
+    "url": "http://api.volunteering.store:8080/users/signup",
     "method": "POST",
     "timeout": 0,
     "headers": {
@@ -110,7 +110,7 @@ function signup(){
 }
 function login(){
   const settings = {
-  "url": "https://api.volunteering.store:8080/users/signin",
+  "url": "http://api.volunteering.store:8080/users/signin",
   "method": "POST",
   "timeout": 0,
   "headers": {
